@@ -845,7 +845,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                     'user_id': currentUserUid,
                                                     'numero_pedido':
                                                         buttonNumbersPedRowList
-                                                            .last.id,
+                                                                .last.id +
+                                                            1,
                                                   });
                                                   setState(() {
                                                     FFAppState().numberPedido =
