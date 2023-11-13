@@ -193,7 +193,7 @@ class FFAppState extends ChangeNotifier {
     _precoSabor4 = _value;
   }
 
-  int _numberPedido = 0;
+  int _numberPedido = 1;
   int get numberPedido => _numberPedido;
   set numberPedido(int _value) {
     _numberPedido = _value;
