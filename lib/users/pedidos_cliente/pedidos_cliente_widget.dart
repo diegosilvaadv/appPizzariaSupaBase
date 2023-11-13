@@ -191,7 +191,12 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                 0.0, 0.0, 0.0, 20.0),
                             child: FutureBuilder<List<NumbersPedRow>>(
                               future: NumbersPedTable().queryRows(
-                                queryFn: (q) => q.order('created_at'),
+                                queryFn: (q) => q
+                                    .eq(
+                                      'user_id',
+                                      currentUserUid,
+                                    )
+                                    .order('created_at'),
                               ),
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
@@ -364,11 +369,16 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                   List<PedidosCarrinhoRow>>(
                                                 future: PedidosCarrinhoTable()
                                                     .queryRows(
-                                                  queryFn: (q) => q.eq(
-                                                    'numero_pedido',
-                                                    listViewNumbersPedRow
-                                                        .numeroPedido,
-                                                  ),
+                                                  queryFn: (q) => q
+                                                      .eq(
+                                                        'numero_pedido',
+                                                        listViewNumbersPedRow
+                                                            .numeroPedido,
+                                                      )
+                                                      .eq(
+                                                        'user_id',
+                                                        currentUserUid,
+                                                      ),
                                                 ),
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
