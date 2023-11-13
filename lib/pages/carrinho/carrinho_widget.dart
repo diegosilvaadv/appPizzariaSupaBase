@@ -784,7 +784,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                   'created_at':
                                                       supaSerialize<DateTime>(
                                                           getCurrentTimestamp),
-                                                  'status': 'Preparando',
+                                                  'status': 'Não pago',
                                                   'numero_pedido':
                                                       buttonPedidosCarrinhoRowList
                                                               .last

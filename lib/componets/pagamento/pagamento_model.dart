@@ -1,9 +1,12 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_credit_card_form.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'dart:ui';
 import 'pagamento_widget.dart' show PagamentoWidget;
 import 'package:flutter/material.dart';
@@ -14,6 +17,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class PagamentoModel extends FlutterFlowModel<PagamentoWidget> {
+  ///  Local state fields for this component.
+
+  PedidosCarrinhoRow? pag;
+
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for CreditCardForm widget.

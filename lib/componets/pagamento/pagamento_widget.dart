@@ -1,9 +1,12 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_credit_card_form.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -485,6 +488,24 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                         0.0, 12.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        unawaited(
+                                          () async {
+                                            await NumbersPedTable().update(
+                                              data: {
+                                                'status': 'Preparando',
+                                              },
+                                              matchingRows: (rows) => rows
+                                                  .eq(
+                                                    'user_id',
+                                                    currentUserUid,
+                                                  )
+                                                  .eq(
+                                                    'numero_pedido',
+                                                    _model.pag?.numeroPedido,
+                                                  ),
+                                            );
+                                          }(),
+                                        );
                                         await Future.delayed(
                                             const Duration(milliseconds: 1000));
                                         setState(() {
