@@ -16,7 +16,12 @@ import 'pedidos_cliente_model.dart';
 export 'pedidos_cliente_model.dart';
 
 class PedidosClienteWidget extends StatefulWidget {
-  const PedidosClienteWidget({Key? key}) : super(key: key);
+  const PedidosClienteWidget({
+    Key? key,
+    this.carrinholist,
+  }) : super(key: key);
+
+  final List<PedidosCarrinhoRow>? carrinholist;
 
   @override
   _PedidosClienteWidgetState createState() => _PedidosClienteWidgetState();
@@ -313,6 +318,30 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                         ),
                                                       ),
                                                     ),
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    4.0,
+                                                                    4.0,
+                                                                    0.0,
+                                                                    2.0),
+                                                        child: Text(
+                                                          dateTimeFormat(
+                                                            'dd/MM/yyyy | kk:mm',
+                                                            listViewNumbersPedRow
+                                                                .createdAt,
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelMedium,
+                                                        ),
+                                                      ),
+                                                    ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -518,34 +547,6 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                   Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    4.0,
-                                                                    0.0,
-                                                                    2.0),
-                                                        child: Text(
-                                                          'Pedido Criado em: ${dateTimeFormat(
-                                                            'dd/MM/yyyy | kk:mm',
-                                                            listViewNumbersPedRow
-                                                                .createdAt,
-                                                            locale: FFLocalizations
-                                                                    .of(context)
-                                                                .languageCode,
-                                                          )}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelMedium,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceBetween,
@@ -571,6 +572,36 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                                         .w600,
                                                               ),
                                                         ),
+                                                      ),
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Text(
+                                                            'x',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium,
+                                                          ),
+                                                          Text(
+                                                            formatNumber(
+                                                              widget
+                                                                  .carrinholist![
+                                                                      FFAppState()
+                                                                          .contador]
+                                                                  .precoProduto!,
+                                                              formatType:
+                                                                  FormatType
+                                                                      .custom,
+                                                              currency: 'R\$',
+                                                              format: '0.00',
+                                                              locale: 'pt_BR',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium,
+                                                          ),
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
