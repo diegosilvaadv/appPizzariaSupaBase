@@ -1,4 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_credit_card_form.dart';
@@ -492,8 +491,8 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                             'status': 'Preparando',
                                           },
                                           matchingRows: (rows) => rows.eq(
-                                            'user_id',
-                                            currentUserUid,
+                                            'numero_pedido',
+                                            _model.pag?.numeroPedido,
                                           ),
                                         );
                                         await Future.delayed(
