@@ -845,6 +845,14 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                             1,
                                                     'user_id': currentUserUid,
                                                   });
+                                                  setState(() {
+                                                    FFAppState().numberPedido =
+                                                        FFAppState()
+                                                                .numberPedido +
+                                                            buttonPedidosCarrinhoRowList
+                                                                .last
+                                                                .numeroPedido!;
+                                                  });
                                                   showAlignedDialog(
                                                     barrierDismissible: false,
                                                     context: context,

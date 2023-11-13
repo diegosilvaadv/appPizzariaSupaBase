@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -37,13 +36,6 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PagamentoModel());
-
-    // On component load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().numberPedido = _model.supabase.last.numeroPedido!;
-      });
-    });
   }
 
   @override
