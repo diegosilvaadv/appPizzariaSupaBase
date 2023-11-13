@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -168,7 +169,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
                       color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 25.0,
+                      fontSize: 24.0,
                     ),
               ),
             ),
@@ -746,10 +747,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                     builder: (context) => Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           6.0, 0.0, 0.0, 0.0),
-                                      child: FutureBuilder<
-                                          List<PedidosCarrinhoRow>>(
-                                        future:
-                                            PedidosCarrinhoTable().queryRows(
+                                      child: FutureBuilder<List<NumbersPedRow>>(
+                                        future: NumbersPedTable().queryRows(
                                           queryFn: (q) => q,
                                         ),
                                         builder: (context, snapshot) {
@@ -771,8 +770,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                               ),
                                             );
                                           }
-                                          List<PedidosCarrinhoRow>
-                                              buttonPedidosCarrinhoRowList =
+                                          List<NumbersPedRow>
+                                              buttonNumbersPedRowList =
                                               snapshot.data!;
                                           return FFButtonWidget(
                                             onPressed: () async {
@@ -780,18 +779,23 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                       .ProdutosDoCarrinho
                                                       .length >=
                                                   1) {
-                                                await NumbersPedTable().insert({
-                                                  'created_at':
-                                                      supaSerialize<DateTime>(
+                                                unawaited(
+                                                  () async {
+                                                    await NumbersPedTable()
+                                                        .insert({
+                                                      'created_at': supaSerialize<
+                                                              DateTime>(
                                                           getCurrentTimestamp),
-                                                  'status': 'Não pago',
-                                                  'numero_pedido':
-                                                      buttonPedidosCarrinhoRowList
-                                                              .last
-                                                              .numeroPedido! +
-                                                          1,
-                                                  'user_id': currentUserUid,
-                                                });
+                                                      'status': 'Não pago',
+                                                      'numero_pedido':
+                                                          buttonNumbersPedRowList
+                                                                  .last
+                                                                  .numeroPedido! +
+                                                              1,
+                                                      'user_id': currentUserUid,
+                                                    });
+                                                  }(),
+                                                );
                                                 setState(() {
                                                   FFAppState().contador = -1;
                                                 });
@@ -839,17 +843,17 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                 .contador]
                                                         .valorpreferecias,
                                                     'numero_pedido':
-                                                        buttonPedidosCarrinhoRowList
-                                                                .last
-                                                                .numeroPedido! +
-                                                            1,
+                                                        buttonNumbersPedRowList[
+                                                                FFAppState()
+                                                                    .contador]
+                                                            .numeroPedido,
                                                     'user_id': currentUserUid,
                                                   });
                                                   setState(() {
                                                     FFAppState().numberPedido =
                                                         FFAppState()
                                                                 .numberPedido +
-                                                            buttonPedidosCarrinhoRowList
+                                                            buttonNumbersPedRowList
                                                                 .last
                                                                 .numeroPedido!;
                                                   });
