@@ -352,20 +352,28 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                           await PedidosCarrinhoTable()
                                                               .delete(
                                                             matchingRows:
-                                                                (rows) =>
-                                                                    rows.eq(
-                                                              'user_id',
-                                                              currentUserUid,
-                                                            ),
+                                                                (rows) => rows
+                                                                    .eq(
+                                                                      'user_id',
+                                                                      currentUserUid,
+                                                                    )
+                                                                    .eq(
+                                                                      'id',
+                                                                      listViewIndex,
+                                                                    ),
                                                           );
                                                           await NumbersPedTable()
                                                               .delete(
                                                             matchingRows:
-                                                                (rows) =>
-                                                                    rows.eq(
-                                                              'user_id',
-                                                              currentUserUid,
-                                                            ),
+                                                                (rows) => rows
+                                                                    .eq(
+                                                                      'user_id',
+                                                                      currentUserUid,
+                                                                    )
+                                                                    .eq(
+                                                                      'id',
+                                                                      listViewIndex,
+                                                                    ),
                                                           );
                                                         },
                                                       ),
