@@ -620,7 +620,16 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                             ],
                                                           ),
                                                           Text(
-                                                            'Hello World',
+                                                            formatNumber(
+                                                              listViewNumbersPedRow
+                                                                  .precoTotal!,
+                                                              formatType:
+                                                                  FormatType
+                                                                      .custom,
+                                                              currency: 'R\$',
+                                                              format: '0.00',
+                                                              locale: 'pt_BR',
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
