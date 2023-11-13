@@ -16,12 +16,7 @@ import 'pedidos_cliente_model.dart';
 export 'pedidos_cliente_model.dart';
 
 class PedidosClienteWidget extends StatefulWidget {
-  const PedidosClienteWidget({
-    Key? key,
-    this.carrinholist,
-  }) : super(key: key);
-
-  final List<PedidosCarrinhoRow>? carrinholist;
+  const PedidosClienteWidget({Key? key}) : super(key: key);
 
   @override
   _PedidosClienteWidgetState createState() => _PedidosClienteWidgetState();
@@ -576,30 +571,67 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                       Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .end,
                                                         children: [
-                                                          Text(
-                                                            'x',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              FlutterFlowIconButton(
+                                                                borderColor: Colors
+                                                                    .transparent,
+                                                                borderRadius:
+                                                                    30.0,
+                                                                borderWidth:
+                                                                    1.0,
+                                                                buttonSize:
+                                                                    36.0,
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .info_outlined,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  size: 18.0,
+                                                                ),
+                                                                onPressed: () {
+                                                                  print(
+                                                                      'IconButton pressed ...');
+                                                                },
+                                                              ),
+                                                              Text(
+                                                                'Total',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                    ),
+                                                              ),
+                                                            ],
                                                           ),
                                                           Text(
-                                                            formatNumber(
-                                                              widget
-                                                                  .carrinholist![
-                                                                      FFAppState()
-                                                                          .contador]
-                                                                  .precoProduto!,
-                                                              formatType:
-                                                                  FormatType
-                                                                      .custom,
-                                                              currency: 'R\$',
-                                                              format: '0.00',
-                                                              locale: 'pt_BR',
-                                                            ),
+                                                            'Hello World',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: Color(
+                                                                      0xFF10DA26),
+                                                                  fontSize:
+                                                                      20.0,
+                                                                ),
                                                           ),
                                                         ],
                                                       ),

@@ -787,11 +787,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                               DateTime>(
                                                           getCurrentTimestamp),
                                                       'status': 'Não pago',
-                                                      'numero_pedido':
-                                                          buttonNumbersPedRowList
-                                                                  .last
-                                                                  .numeroPedido! +
-                                                              1,
                                                       'user_id': currentUserUid,
                                                     });
                                                   }(),
@@ -847,14 +842,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                         buttonNumbersPedRowList
                                                                 .last.id +
                                                             1,
-                                                  });
-                                                  setState(() {
-                                                    FFAppState().numberPedido =
-                                                        FFAppState()
-                                                                .numberPedido +
-                                                            buttonNumbersPedRowList
-                                                                .last
-                                                                .numeroPedido!;
                                                   });
                                                   showAlignedDialog(
                                                     barrierDismissible: false,
