@@ -844,10 +844,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                 .contador]
                                                         .valorpreferecias,
                                                     'user_id': currentUserUid,
-                                                    'numero_pedido':
-                                                        buttonNumbersPedRowList
-                                                                .last.id +
-                                                            1,
                                                   });
                                                   showAlignedDialog(
                                                     barrierDismissible: false,
