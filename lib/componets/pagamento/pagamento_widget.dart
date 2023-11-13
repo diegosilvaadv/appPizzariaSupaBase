@@ -516,15 +516,10 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                               data: {
                                                 'status': 'Preparando',
                                               },
-                                              matchingRows: (rows) => rows
-                                                  .eq(
-                                                    'user_id',
-                                                    currentUserUid,
-                                                  )
-                                                  .eq(
-                                                    'id',
-                                                    _model.supabase.last.id,
-                                                  ),
+                                              matchingRows: (rows) => rows.eq(
+                                                'user_id',
+                                                currentUserUid,
+                                              ),
                                             );
                                             await Future.delayed(const Duration(
                                                 milliseconds: 1000));
