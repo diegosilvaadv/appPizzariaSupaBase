@@ -780,6 +780,18 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                       .ProdutosDoCarrinho
                                                       .length >=
                                                   1) {
+                                                await NumbersPedTable().insert({
+                                                  'created_at':
+                                                      supaSerialize<DateTime>(
+                                                          getCurrentTimestamp),
+                                                  'status': 'Preparando',
+                                                  'numero_pedido':
+                                                      buttonPedidosCarrinhoRowList
+                                                              .last
+                                                              .numeroPedido! +
+                                                          1,
+                                                  'user_id': currentUserUid,
+                                                });
                                                 setState(() {
                                                   FFAppState().contador = -1;
                                                 });
