@@ -788,6 +788,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                           getCurrentTimestamp),
                                                       'status': 'Não pago',
                                                       'user_id': currentUserUid,
+                                                      'preco_total': FFAppState()
+                                                          .ProdutosDoCarrinho[
+                                                              FFAppState()
+                                                                  .contador]
+                                                          .valorBebidas,
                                                     });
                                                   }(),
                                                 );
@@ -825,8 +830,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                 .contador]
                                                         .img,
                                                     'status': 'Não Paga',
-                                                    'quanty':
-                                                        FFAppState().quantity,
+                                                    'quanty': FFAppState()
+                                                        .ProdutosDoCarrinho[
+                                                            FFAppState()
+                                                                .contador]
+                                                        .quantity,
                                                     'nome_massa': FFAppState()
                                                         .ProdutosDoCarrinho[
                                                             FFAppState()
