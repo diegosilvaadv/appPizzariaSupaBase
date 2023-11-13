@@ -389,7 +389,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                       .eq(
                                                         'numero_pedido',
                                                         listViewNumbersPedRow
-                                                            .numeroPedido,
+                                                            .id,
                                                       )
                                                       .eq(
                                                         'user_id',
@@ -559,7 +559,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                                     0.0,
                                                                     2.0),
                                                         child: Text(
-                                                          'Numero do Pedido: ${listViewNumbersPedRow.numeroPedido?.toString()}',
+                                                          'Numero do Pedido: ${listViewNumbersPedRow.id.toString()}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelMedium
