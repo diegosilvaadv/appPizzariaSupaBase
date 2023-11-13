@@ -1,4 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/componets/pagamento/pagamento_widget.dart';
@@ -831,7 +830,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                 .last
                                                                 .numeroPedido! +
                                                             1,
-                                                    'user_id': currentUserUid,
+                                                    'user_id':
+                                                        buttonPedidosCarrinhoRowList[
+                                                                FFAppState()
+                                                                    .contador]
+                                                            .userId,
                                                   });
                                                   await Future.delayed(
                                                       const Duration(
