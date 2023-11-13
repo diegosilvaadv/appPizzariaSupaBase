@@ -352,12 +352,20 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                           await PedidosCarrinhoTable()
                                                               .delete(
                                                             matchingRows:
-                                                                (rows) => rows,
+                                                                (rows) =>
+                                                                    rows.eq(
+                                                              'user_id',
+                                                              currentUserUid,
+                                                            ),
                                                           );
                                                           await NumbersPedTable()
                                                               .delete(
                                                             matchingRows:
-                                                                (rows) => rows,
+                                                                (rows) =>
+                                                                    rows.eq(
+                                                              'user_id',
+                                                              currentUserUid,
+                                                            ),
                                                           );
                                                         },
                                                       ),

@@ -16,10 +16,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class PagamentoModel extends FlutterFlowModel<PagamentoWidget> {
-  ///  Local state fields for this component.
-
-  PedidosCarrinhoRow? pag;
-
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for CreditCardForm widget.
