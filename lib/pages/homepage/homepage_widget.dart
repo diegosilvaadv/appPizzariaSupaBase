@@ -188,7 +188,6 @@ class _HomepageWidgetState extends State<HomepageWidget>
         FFAppState().MenuCondicao = 'Monte Sua Pizza';
         FFAppState().precoSabor3 = 0;
         FFAppState().precoSabor4 = 0;
-        FFAppState().Drawer = 0;
       });
     });
 
@@ -532,10 +531,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  setState(() {
-                                    FFAppState().Drawer =
-                                        FFAppState().Drawer + 1;
-                                  });
+                                  setState(() {});
                                   scaffoldKey.currentState!.openDrawer();
                                 },
                                 child: Icon(

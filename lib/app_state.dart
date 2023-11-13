@@ -193,10 +193,10 @@ class FFAppState extends ChangeNotifier {
     _precoSabor4 = _value;
   }
 
-  int _Drawer = 0;
-  int get Drawer => _Drawer;
-  set Drawer(int _value) {
-    _Drawer = _value;
+  int _numberPedido = 0;
+  int get numberPedido => _numberPedido;
+  set numberPedido(int _value) {
+    _numberPedido = _value;
   }
 }
 
