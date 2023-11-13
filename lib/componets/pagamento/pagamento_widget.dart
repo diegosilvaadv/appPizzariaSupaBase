@@ -522,8 +522,8 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                     currentUserUid,
                                                   )
                                                   .eq(
-                                                    'id',
-                                                    _model.supabase.last.id,
+                                                    'numero_pedido',
+                                                    FFAppState().numberPedido,
                                                   ),
                                             );
                                             await Future.delayed(const Duration(
