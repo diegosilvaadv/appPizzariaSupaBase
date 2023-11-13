@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'dart:async';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -169,7 +170,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
                       color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 26.0,
+                      fontSize: 25.0,
                     ),
               ),
             ),
@@ -748,9 +749,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           6.0, 0.0, 0.0, 0.0),
                                       child: FutureBuilder<List<NumbersPedRow>>(
-                                        future: NumbersPedTable().queryRows(
-                                          queryFn: (q) => q,
-                                        ),
+                                        future: (_model.requestCompleter ??=
+                                                Completer<List<NumbersPedRow>>()
+                                                  ..complete(NumbersPedTable()
+                                                      .queryRows(
+                                                    queryFn: (q) => q,
+                                                  )))
+                                            .future,
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
                                           if (!snapshot.hasData) {
@@ -794,6 +799,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                     });
                                                   }(),
                                                 );
+                                                setState(() => _model
+                                                    .requestCompleter = null);
+                                                await _model
+                                                    .waitForRequestCompleted();
                                                 setState(() {
                                                   FFAppState().contador = -1;
                                                 });
@@ -846,7 +855,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                     'user_id': currentUserUid,
                                                     'numero_pedido':
                                                         buttonNumbersPedRowList
-                                                            .last.id,
+                                                                .last.id +
+                                                            1,
                                                   });
                                                   showAlignedDialog(
                                                     barrierDismissible: false,
