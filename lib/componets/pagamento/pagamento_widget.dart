@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_credit_card_form.dart';
@@ -484,57 +485,88 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 0.0),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        await NumbersPedTable().update(
-                                          data: {
-                                            'status': 'Preparando',
+                                    child: FutureBuilder<List<NumbersPedRow>>(
+                                      future: NumbersPedTable().queryRows(
+                                        queryFn: (q) => q,
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        List<NumbersPedRow>
+                                            buttonNumbersPedRowList =
+                                            snapshot.data!;
+                                        return FFButtonWidget(
+                                          onPressed: () async {
+                                            await NumbersPedTable().update(
+                                              data: {
+                                                'status': 'Preparando',
+                                              },
+                                              matchingRows: (rows) => rows.eq(
+                                                'user_id',
+                                                currentUserUid,
+                                              ),
+                                            );
+                                            await Future.delayed(const Duration(
+                                                milliseconds: 1000));
+                                            setState(() {
+                                              FFAppState().totalprice = 0;
+                                              FFAppState().ProdutosDoCarrinho =
+                                                  [];
+                                              FFAppState().numberCarrinho = 0;
+                                            });
+
+                                            context.goNamed(
+                                              'pedidos_cliente',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration: Duration(
+                                                      milliseconds: 1000),
+                                                ),
+                                              },
+                                            );
                                           },
-                                          matchingRows: (rows) => rows.eq(
-                                            'numero_pedido',
-                                            _model.pag?.numeroPedido,
+                                          text: 'Realizar Pagamento',
+                                          options: FFButtonOptions(
+                                            width: 270.0,
+                                            height: 50.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall,
+                                            elevation: 2.0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
                                           ),
                                         );
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 1000));
-                                        setState(() {
-                                          FFAppState().totalprice = 0;
-                                          FFAppState().ProdutosDoCarrinho = [];
-                                          FFAppState().numberCarrinho = 0;
-                                        });
-
-                                        context.goNamed(
-                                          'pedidos_cliente',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 1000),
-                                            ),
-                                          },
-                                        );
                                       },
-                                      text: 'Realizar Pagamento',
-                                      options: FFButtonOptions(
-                                        width: 270.0,
-                                        height: 50.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall,
-                                        elevation: 2.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
-                                        ),
-                                      ),
                                     ),
                                   ),
                                   if (responsiveVisibility(
