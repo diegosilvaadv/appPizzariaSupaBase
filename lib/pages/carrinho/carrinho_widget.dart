@@ -845,9 +845,6 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                             1,
                                                     'user_id': currentUserUid,
                                                   });
-                                                  await Future.delayed(
-                                                      const Duration(
-                                                          milliseconds: 1000));
                                                   showAlignedDialog(
                                                     barrierDismissible: false,
                                                     context: context,

@@ -505,7 +505,10 @@ class _HomepageWidgetState extends State<HomepageWidget>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           GradientText(
-                            '${functions.temposaudacao()}${rowUsersRow?.nome}',
+                            '${functions.temposaudacao()}${valueOrDefault<String>(
+                              rowUsersRow?.nome,
+                              'sem nome',
+                            )}',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
