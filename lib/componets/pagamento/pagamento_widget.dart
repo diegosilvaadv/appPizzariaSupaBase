@@ -112,7 +112,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                               .headlineSmall
                                               .override(
                                                 fontFamily: 'Outfit',
-                                                fontSize: 24.0,
+                                                fontSize: 25.0,
                                               ),
                                         ),
                                         Padding(
@@ -523,7 +523,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                   )
                                                   .eq(
                                                     'numero_pedido',
-                                                    5003,
+                                                    5001,
                                                   ),
                                             );
                                             await Future.delayed(const Duration(
