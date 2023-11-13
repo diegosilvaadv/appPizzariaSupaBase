@@ -169,7 +169,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
                       color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 25.0,
+                      fontSize: 24.0,
                     ),
               ),
             ),
@@ -843,6 +843,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                 .contador]
                                                         .valorpreferecias,
                                                     'user_id': currentUserUid,
+                                                    'numero_pedido':
+                                                        buttonNumbersPedRowList
+                                                            .last.id,
                                                   });
                                                   setState(() {
                                                     FFAppState().numberPedido =
