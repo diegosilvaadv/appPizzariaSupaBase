@@ -10,7 +10,7 @@ class PedidosCarrinhoTable extends SupabaseTable<PedidosCarrinhoRow> {
 }
 
 class PedidosCarrinhoRow extends SupabaseDataRow {
-  PedidosCarrinhoRow(super.data);
+  PedidosCarrinhoRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => PedidosCarrinhoTable();
@@ -45,6 +45,6 @@ class PedidosCarrinhoRow extends SupabaseDataRow {
   int? get numeroPedido => getField<int>('numero_pedido');
   set numeroPedido(int? value) => setField<int>('numero_pedido', value);
 
-  int? get user => getField<int>('user');
-  set user(int? value) => setField<int>('user', value);
+  String? get userId => getField<String>('user_id');
+  set userId(String? value) => setField<String>('user_id', value);
 }

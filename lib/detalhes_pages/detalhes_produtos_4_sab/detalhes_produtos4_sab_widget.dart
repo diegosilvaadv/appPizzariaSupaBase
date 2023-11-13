@@ -12,12 +12,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'detalhes_produtos4_sab_model.dart';
 export 'detalhes_produtos4_sab_model.dart';
 
 class DetalhesProdutos4SabWidget extends StatefulWidget {
-  const DetalhesProdutos4SabWidget({super.key});
+  const DetalhesProdutos4SabWidget({Key? key}) : super(key: key);
 
   @override
   _DetalhesProdutos4SabWidgetState createState() =>
@@ -41,10 +42,10 @@ class _DetalhesProdutos4SabWidgetState
         FFAppState().preferec = 0;
         FFAppState().condicao = 0;
         FFAppState().PrefReferencia = PrefenciasAppSStruct.fromSerializableMap(
-            jsonDecode('{"nome_massa":"Nenhuma","valor_massa":"0"}'));
+            jsonDecode('{\"nome_massa\":\"Nenhuma\",\"valor_massa\":\"0\"}'));
         FFAppState().quantity = 1;
         FFAppState().SaboresApp = SaboresStruct.fromSerializableMap(jsonDecode(
-            '{"sabor1":"Nenhum","sabor2":"Nenhum","preco_sabor1":"0","preco_sabor2":"0"}'));
+            '{\"sabor1\":\"Nenhum\",\"sabor2\":\"Nenhum\",\"preco_sabor1\":\"0\",\"preco_sabor2\":\"0\"}'));
         FFAppState().precoSabor1 = 0;
         FFAppState().precoSabor2 = 0;
         FFAppState().massaCondicao = 0;
@@ -84,7 +85,7 @@ class _DetalhesProdutos4SabWidgetState
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                 child: Card(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -94,7 +95,7 @@ class _DetalhesProdutos4SabWidgetState
                   ),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -102,9 +103,9 @@ class _DetalhesProdutos4SabWidgetState
                           Stack(
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.00, 0.00),
                                 child: ClipRRect(
-                                  borderRadius: const BorderRadius.only(
+                                  borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(16.0),
                                     bottomRight: Radius.circular(16.0),
                                     topLeft: Radius.circular(0.0),
@@ -120,7 +121,7 @@ class _DetalhesProdutos4SabWidgetState
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 30.0, 10.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -149,10 +150,10 @@ class _DetalhesProdutos4SabWidgetState
                                             FFAppState().PrefReferencia =
                                                 PrefenciasAppSStruct
                                                     .fromSerializableMap(jsonDecode(
-                                                        '{"nome_massa":"Nenhuma","valor_massa":"0"}'));
+                                                        '{\"nome_massa\":\"Nenhuma\",\"valor_massa\":\"0\"}'));
                                             FFAppState().SaboresApp = SaboresStruct
                                                 .fromSerializableMap(jsonDecode(
-                                                    '{"sabor1":"Nenhum","sabor2":"Nenhum","preco_sabor1":"0","preco_sabor2":"0"}'));
+                                                    '{\"sabor1\":\"Nenhum\",\"sabor2\":\"Nenhum\",\"preco_sabor1\":\"0\",\"preco_sabor2\":\"0\"}'));
                                             FFAppState().precoSabor1 = 0;
                                             FFAppState().precoSabor2 = 0;
                                             FFAppState().massaCondicao = 0;
@@ -184,14 +185,14 @@ class _DetalhesProdutos4SabWidgetState
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 5.0, 10.0, 5.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           3.0, 3.0, 3.0, 3.0),
                                                   child: Text(
@@ -220,7 +221,7 @@ class _DetalhesProdutos4SabWidgetState
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -259,7 +260,7 @@ class _DetalhesProdutos4SabWidgetState
                             color: FlutterFlowTheme.of(context).secondaryText,
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -282,7 +283,7 @@ class _DetalhesProdutos4SabWidgetState
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 12.0),
                                                 child: Container(
@@ -311,7 +312,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     .of(context)
                                                                 .secondary;
                                                           } else {
-                                                            return const Color(
+                                                            return Color(
                                                                 0x00000000);
                                                           }
                                                         }(),
@@ -324,7 +325,7 @@ class _DetalhesProdutos4SabWidgetState
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(2.0, 4.0,
                                                                 4.0, 12.0),
                                                     child: Column(
@@ -336,7 +337,7 @@ class _DetalhesProdutos4SabWidgetState
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       8.0,
@@ -359,7 +360,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                         .max,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             2.0,
                                                                             2.0,
@@ -389,7 +390,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                       ),
                                                                       child:
                                                                           Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.00,
                                                                             0.00),
                                                                         child:
@@ -407,7 +408,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -428,7 +429,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                               FlutterFlowTheme.of(context).bodyLarge,
                                                                         ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               4.0,
                                                                               0.0,
@@ -468,7 +469,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                             .max,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             4.0,
@@ -503,7 +504,7 @@ class _DetalhesProdutos4SabWidgetState
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       10.0,
@@ -538,9 +539,9 @@ class _DetalhesProdutos4SabWidgetState
                                                                         avoidOverflow:
                                                                             true,
                                                                         targetAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         followerAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         builder:
                                                                             (dialogContext) {
                                                                           return Material(
@@ -549,7 +550,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                             child:
                                                                                 GestureDetector(
                                                                               onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                              child: const SelectSabor1GG16FWidget(),
+                                                                              child: SelectSabor1GG16FWidget(),
                                                                             ),
                                                                           );
                                                                         },
@@ -559,7 +560,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     },
                                                                     text:
                                                                         'Escolha o Primeiro Sabor',
-                                                                    icon: const Icon(
+                                                                    icon: Icon(
                                                                       Icons
                                                                           .local_pizza,
                                                                       size:
@@ -569,17 +570,17 @@ class _DetalhesProdutos4SabWidgetState
                                                                         FFButtonOptions(
                                                                       height:
                                                                           40.0,
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
                                                                           0.0),
-                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFF1A9E8F),
                                                                       textStyle: FlutterFlowTheme.of(
                                                                               context)
@@ -595,7 +596,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                       elevation:
                                                                           3.0,
                                                                       borderSide:
-                                                                          const BorderSide(
+                                                                          BorderSide(
                                                                         color: Colors
                                                                             .transparent,
                                                                         width:
@@ -665,7 +666,7 @@ class _DetalhesProdutos4SabWidgetState
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 12.0),
                                                 child: Container(
@@ -694,7 +695,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     .of(context)
                                                                 .secondary;
                                                           } else {
-                                                            return const Color(
+                                                            return Color(
                                                                 0x00000000);
                                                           }
                                                         }(),
@@ -707,7 +708,7 @@ class _DetalhesProdutos4SabWidgetState
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(2.0, 4.0,
                                                                 4.0, 12.0),
                                                     child: Column(
@@ -719,7 +720,7 @@ class _DetalhesProdutos4SabWidgetState
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       8.0,
@@ -742,7 +743,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                         .max,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             2.0,
                                                                             2.0,
@@ -772,7 +773,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                       ),
                                                                       child:
                                                                           Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.00,
                                                                             0.00),
                                                                         child:
@@ -790,7 +791,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -811,7 +812,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                               FlutterFlowTheme.of(context).bodyLarge,
                                                                         ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               4.0,
                                                                               0.0,
@@ -851,7 +852,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                             .max,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             4.0,
@@ -886,7 +887,7 @@ class _DetalhesProdutos4SabWidgetState
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       10.0,
@@ -921,9 +922,9 @@ class _DetalhesProdutos4SabWidgetState
                                                                         avoidOverflow:
                                                                             true,
                                                                         targetAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         followerAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         builder:
                                                                             (dialogContext) {
                                                                           return Material(
@@ -932,7 +933,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                             child:
                                                                                 GestureDetector(
                                                                               onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                              child: const SelectSabor2GG16FWidget(),
+                                                                              child: SelectSabor2GG16FWidget(),
                                                                             ),
                                                                           );
                                                                         },
@@ -942,7 +943,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     },
                                                                     text:
                                                                         'Escolha o Segundo Sabor',
-                                                                    icon: const Icon(
+                                                                    icon: Icon(
                                                                       Icons
                                                                           .local_pizza,
                                                                       size:
@@ -952,17 +953,17 @@ class _DetalhesProdutos4SabWidgetState
                                                                         FFButtonOptions(
                                                                       height:
                                                                           40.0,
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
                                                                           0.0),
-                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFF1A9E8F),
                                                                       textStyle: FlutterFlowTheme.of(
                                                                               context)
@@ -978,7 +979,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                       elevation:
                                                                           3.0,
                                                                       borderSide:
-                                                                          const BorderSide(
+                                                                          BorderSide(
                                                                         color: Colors
                                                                             .transparent,
                                                                         width:
@@ -1048,7 +1049,7 @@ class _DetalhesProdutos4SabWidgetState
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 12.0),
                                                 child: Container(
@@ -1077,7 +1078,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     .of(context)
                                                                 .secondary;
                                                           } else {
-                                                            return const Color(
+                                                            return Color(
                                                                 0x00000000);
                                                           }
                                                         }(),
@@ -1090,7 +1091,7 @@ class _DetalhesProdutos4SabWidgetState
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(2.0, 4.0,
                                                                 4.0, 12.0),
                                                     child: Column(
@@ -1102,7 +1103,7 @@ class _DetalhesProdutos4SabWidgetState
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       8.0,
@@ -1125,7 +1126,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                         .max,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             2.0,
                                                                             2.0,
@@ -1155,7 +1156,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                       ),
                                                                       child:
                                                                           Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.00,
                                                                             0.00),
                                                                         child:
@@ -1173,7 +1174,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -1194,7 +1195,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                               FlutterFlowTheme.of(context).bodyLarge,
                                                                         ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               4.0,
                                                                               0.0,
@@ -1234,7 +1235,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                             .max,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             4.0,
@@ -1269,7 +1270,7 @@ class _DetalhesProdutos4SabWidgetState
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       10.0,
@@ -1304,9 +1305,9 @@ class _DetalhesProdutos4SabWidgetState
                                                                         avoidOverflow:
                                                                             true,
                                                                         targetAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         followerAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         builder:
                                                                             (dialogContext) {
                                                                           return Material(
@@ -1315,7 +1316,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                             child:
                                                                                 GestureDetector(
                                                                               onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                              child: const SelectSabor3GGWidget(),
+                                                                              child: SelectSabor3GGWidget(),
                                                                             ),
                                                                           );
                                                                         },
@@ -1325,7 +1326,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     },
                                                                     text:
                                                                         'Escolha o Segundo Sabor',
-                                                                    icon: const Icon(
+                                                                    icon: Icon(
                                                                       Icons
                                                                           .local_pizza,
                                                                       size:
@@ -1335,17 +1336,17 @@ class _DetalhesProdutos4SabWidgetState
                                                                         FFButtonOptions(
                                                                       height:
                                                                           40.0,
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
                                                                           0.0),
-                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFF1A9E8F),
                                                                       textStyle: FlutterFlowTheme.of(
                                                                               context)
@@ -1361,7 +1362,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                       elevation:
                                                                           3.0,
                                                                       borderSide:
-                                                                          const BorderSide(
+                                                                          BorderSide(
                                                                         color: Colors
                                                                             .transparent,
                                                                         width:
@@ -1431,7 +1432,7 @@ class _DetalhesProdutos4SabWidgetState
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 12.0),
                                                 child: Container(
@@ -1460,7 +1461,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     .of(context)
                                                                 .secondary;
                                                           } else {
-                                                            return const Color(
+                                                            return Color(
                                                                 0x00000000);
                                                           }
                                                         }(),
@@ -1473,7 +1474,7 @@ class _DetalhesProdutos4SabWidgetState
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(2.0, 4.0,
                                                                 4.0, 12.0),
                                                     child: Column(
@@ -1485,7 +1486,7 @@ class _DetalhesProdutos4SabWidgetState
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       8.0,
@@ -1508,7 +1509,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                         .max,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             2.0,
                                                                             2.0,
@@ -1538,7 +1539,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                       ),
                                                                       child:
                                                                           Align(
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.00,
                                                                             0.00),
                                                                         child:
@@ -1556,7 +1557,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -1577,7 +1578,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                               FlutterFlowTheme.of(context).bodyLarge,
                                                                         ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               4.0,
                                                                               0.0,
@@ -1617,7 +1618,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                             .max,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             4.0,
@@ -1652,7 +1653,7 @@ class _DetalhesProdutos4SabWidgetState
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       10.0,
@@ -1687,9 +1688,9 @@ class _DetalhesProdutos4SabWidgetState
                                                                         avoidOverflow:
                                                                             true,
                                                                         targetAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         followerAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         builder:
                                                                             (dialogContext) {
                                                                           return Material(
@@ -1698,7 +1699,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                             child:
                                                                                 GestureDetector(
                                                                               onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                              child: const SelectSabor4GGWidget(),
+                                                                              child: SelectSabor4GGWidget(),
                                                                             ),
                                                                           );
                                                                         },
@@ -1708,7 +1709,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     },
                                                                     text:
                                                                         'Escolha o Segundo Sabor',
-                                                                    icon: const Icon(
+                                                                    icon: Icon(
                                                                       Icons
                                                                           .local_pizza,
                                                                       size:
@@ -1718,17 +1719,17 @@ class _DetalhesProdutos4SabWidgetState
                                                                         FFButtonOptions(
                                                                       height:
                                                                           40.0,
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
                                                                           0.0),
-                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFF1A9E8F),
                                                                       textStyle: FlutterFlowTheme.of(
                                                                               context)
@@ -1744,7 +1745,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                       elevation:
                                                                           3.0,
                                                                       borderSide:
-                                                                          const BorderSide(
+                                                                          BorderSide(
                                                                         color: Colors
                                                                             .transparent,
                                                                         width:
@@ -1814,7 +1815,7 @@ class _DetalhesProdutos4SabWidgetState
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 12.0),
                                                 child: Container(
@@ -1857,7 +1858,7 @@ class _DetalhesProdutos4SabWidgetState
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(2.0, 4.0,
                                                                 4.0, 12.0),
                                                     child: Column(
@@ -1869,7 +1870,7 @@ class _DetalhesProdutos4SabWidgetState
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       8.0,
@@ -1892,7 +1893,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                         .max,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             2.0,
                                                                             2.0,
@@ -1932,7 +1933,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -1953,7 +1954,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                               FlutterFlowTheme.of(context).bodyLarge,
                                                                         ),
                                                                         Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               4.0,
                                                                               0.0,
@@ -1993,7 +1994,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                             .max,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             4.0,
@@ -2028,7 +2029,7 @@ class _DetalhesProdutos4SabWidgetState
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       10.0,
@@ -2063,9 +2064,9 @@ class _DetalhesProdutos4SabWidgetState
                                                                         avoidOverflow:
                                                                             true,
                                                                         targetAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         followerAnchor:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         builder:
                                                                             (dialogContext) {
                                                                           return Material(
@@ -2074,7 +2075,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                             child:
                                                                                 GestureDetector(
                                                                               onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                              child: const SelectMassaWidget(),
+                                                                              child: SelectMassaWidget(),
                                                                             ),
                                                                           );
                                                                         },
@@ -2084,7 +2085,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                     },
                                                                     text:
                                                                         'Escolha o Tipo de Massa',
-                                                                    icon: const Icon(
+                                                                    icon: Icon(
                                                                       Icons
                                                                           .local_pizza,
                                                                       size:
@@ -2094,17 +2095,17 @@ class _DetalhesProdutos4SabWidgetState
                                                                         FFButtonOptions(
                                                                       height:
                                                                           40.0,
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
                                                                           0.0),
-                                                                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFF1A9E8F),
                                                                       textStyle: FlutterFlowTheme.of(
                                                                               context)
@@ -2120,7 +2121,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                       elevation:
                                                                           3.0,
                                                                       borderSide:
-                                                                          const BorderSide(
+                                                                          BorderSide(
                                                                         color: Colors
                                                                             .transparent,
                                                                         width:
@@ -2161,7 +2162,7 @@ class _DetalhesProdutos4SabWidgetState
                                                                       FFAppState()
                                                                               .PrefReferencia =
                                                                           PrefenciasAppSStruct.fromSerializableMap(
-                                                                              jsonDecode('{"nome_massa":"Nenhuma","valor_massa":"0"}'));
+                                                                              jsonDecode('{\"nome_massa\":\"Nenhuma\",\"valor_massa\":\"0\"}'));
                                                                       FFAppState()
                                                                           .preferec = 0;
                                                                     });
@@ -2202,7 +2203,7 @@ class _DetalhesProdutos4SabWidgetState
             Material(
               color: Colors.transparent,
               elevation: 10.0,
-              shape: const RoundedRectangleBorder(
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(0.0),
                   bottomRight: Radius.circular(0.0),
@@ -2215,14 +2216,14 @@ class _DetalhesProdutos4SabWidgetState
                 height: 70.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
                       blurRadius: 5.0,
                       color: Color(0x411D2429),
                       offset: Offset(0.0, -2.0),
                     )
                   ],
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
                     bottomRight: Radius.circular(0.0),
                     topLeft: Radius.circular(8.0),
@@ -2237,10 +2238,10 @@ class _DetalhesProdutos4SabWidgetState
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(-1.00, 0.00),
+                      alignment: AlignmentDirectional(-1.00, 0.00),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                            EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
                         child: Container(
                           width: 116.0,
                           height: 100.0,
@@ -2250,7 +2251,7 @@ class _DetalhesProdutos4SabWidgetState
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -2322,7 +2323,7 @@ class _DetalhesProdutos4SabWidgetState
                                     FontAwesomeIcons.plus,
                                     color: () {
                                       if (FFAppState().quantity >= 1) {
-                                        return const Color(0xFF10DA26);
+                                        return Color(0xFF10DA26);
                                       } else if (FFAppState().quantity == 9) {
                                         return FlutterFlowTheme.of(context)
                                             .secondaryText;
@@ -2342,7 +2343,7 @@ class _DetalhesProdutos4SabWidgetState
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 6.0, 6.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 6.0, 6.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.6,
                         height: 100.0,
@@ -2352,7 +2353,7 @@ class _DetalhesProdutos4SabWidgetState
                               return FlutterFlowTheme.of(context)
                                   .primaryBackground;
                             } else if (FFAppState().condicao == 5) {
-                              return const Color(0xFF10DA26);
+                              return Color(0xFF10DA26);
                             } else {
                               return FlutterFlowTheme.of(context)
                                   .primaryBackground;
@@ -2361,7 +2362,7 @@ class _DetalhesProdutos4SabWidgetState
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -2408,14 +2409,14 @@ class _DetalhesProdutos4SabWidgetState
                                       FFAppState().numberCarrinho + 1;
                                   FFAppState().SaboresApp = SaboresStruct
                                       .fromSerializableMap(jsonDecode(
-                                          '{"sabor1":"Nenhum","sabor2":"Nenhum","preco_sabor1":"0","preco_sabor2":"0"}'));
+                                          '{\"sabor1\":\"Nenhum\",\"sabor2\":\"Nenhum\",\"preco_sabor1\":\"0\",\"preco_sabor2\":\"0\"}'));
                                   FFAppState().precoSabor1 = 0;
                                   FFAppState().precoSabor2 = 0;
                                   FFAppState().preferec = 0;
                                   FFAppState().PrefReferencia =
                                       PrefenciasAppSStruct.fromSerializableMap(
                                           jsonDecode(
-                                              '{"nome_massa":"Nenhuma","valor_massa":"0"}'));
+                                              '{\"nome_massa\":\"Nenhuma\",\"valor_massa\":\"0\"}'));
                                   FFAppState().massaCondicao = 0;
                                   FFAppState().precoSabor3 = 0;
                                   FFAppState().precoSabor4 = 0;
@@ -2425,7 +2426,7 @@ class _DetalhesProdutos4SabWidgetState
                                 context.pushNamed(
                                   'homepage',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: const TransitionInfo(
+                                    kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                     ),
@@ -2442,7 +2443,7 @@ class _DetalhesProdutos4SabWidgetState
                                             .primaryText,
                                       ),
                                     ),
-                                    duration: const Duration(milliseconds: 4000),
+                                    duration: Duration(milliseconds: 4000),
                                     backgroundColor:
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
@@ -2464,7 +2465,7 @@ class _DetalhesProdutos4SabWidgetState
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(

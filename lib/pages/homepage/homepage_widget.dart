@@ -13,13 +13,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'homepage_model.dart';
 export 'homepage_model.dart';
 
 class HomepageWidget extends StatefulWidget {
-  const HomepageWidget({super.key});
+  const HomepageWidget({Key? key}) : super(key: key);
 
   @override
   _HomepageWidgetState createState() => _HomepageWidgetState();
@@ -70,8 +71,8 @@ class _HomepageWidgetState extends State<HomepageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 80.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 80.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -89,8 +90,8 @@ class _HomepageWidgetState extends State<HomepageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 80.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 80.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -108,8 +109,8 @@ class _HomepageWidgetState extends State<HomepageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 80.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 80.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -127,8 +128,8 @@ class _HomepageWidgetState extends State<HomepageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 80.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 80.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -146,8 +147,8 @@ class _HomepageWidgetState extends State<HomepageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 80.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 80.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -159,8 +160,8 @@ class _HomepageWidgetState extends State<HomepageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: const Offset(-40.0, 0.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(-40.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -178,9 +179,9 @@ class _HomepageWidgetState extends State<HomepageWidget>
         FFAppState().condicao = 0;
         FFAppState().preferec = 0;
         FFAppState().PrefReferencia = PrefenciasAppSStruct.fromSerializableMap(
-            jsonDecode('{"nome_massa":"Nenhuma","valor_massa":"0"}'));
+            jsonDecode('{\"nome_massa\":\"Nenhuma\",\"valor_massa\":\"0\"}'));
         FFAppState().SaboresApp = SaboresStruct.fromSerializableMap(jsonDecode(
-            '{"sabor1":"Nenhum","sabor2":"Nenhum","preco_sabor1":"0","preco_sabor2":"0"}'));
+            '{\"sabor1\":\"Nenhum\",\"sabor2\":\"Nenhum\",\"preco_sabor1\":\"0\",\"preco_sabor2\":\"0\"}'));
         FFAppState().precoSabor1 = 0;
         FFAppState().precoSabor2 = 0;
         FFAppState().massaCondicao = 0;
@@ -244,7 +245,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
           onPressed: () {
             print('FloatingActionButton pressed ...');
           },
-          backgroundColor: const Color(0xFF0CEB29),
+          backgroundColor: Color(0xFF0CEB29),
           elevation: 8.0,
           child: InkWell(
             splashColor: Colors.transparent,
@@ -256,7 +257,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
             },
             child: Stack(
               children: [
-                const Align(
+                Align(
                   alignment: AlignmentDirectional(0.00, 0.00),
                   child: Icon(
                     Icons.local_grocery_store,
@@ -265,7 +266,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(1.00, -1.00),
+                  alignment: AlignmentDirectional(1.00, -1.00),
                   child: badges.Badge(
                     badgeContent: Text(
                       formatNumber(
@@ -281,9 +282,9 @@ class _HomepageWidgetState extends State<HomepageWidget>
                     ),
                     showBadge: true,
                     shape: badges.BadgeShape.circle,
-                    badgeColor: const Color(0xFF88180F),
+                    badgeColor: Color(0xFF88180F),
                     elevation: 4.0,
-                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                     position: badges.BadgePosition.topEnd(),
                     animationType: badges.BadgeAnimationType.scale,
                     toAnimate: true,
@@ -298,19 +299,19 @@ class _HomepageWidgetState extends State<HomepageWidget>
           child: Opacity(
             opacity: 0.8,
             child: Align(
-              alignment: const AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.00, 0.00),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.00, 0.00),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 12.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -346,20 +347,20 @@ class _HomepageWidgetState extends State<HomepageWidget>
                               width: 80.0,
                               height: 40.0,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFF1F4F8),
+                                color: Color(0xFFF1F4F8),
                                 borderRadius: BorderRadius.circular(20.0),
                                 border: Border.all(
-                                  color: const Color(0xFFE0E3E7),
+                                  color: Color(0xFFE0E3E7),
                                   width: 1.0,
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     2.0, 2.0, 2.0, 2.0),
                                 child: Stack(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   children: [
-                                    const Align(
+                                    Align(
                                       alignment:
                                           AlignmentDirectional(-0.90, 0.00),
                                       child: Padding(
@@ -372,7 +373,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                         ),
                                       ),
                                     ),
-                                    const Align(
+                                    Align(
                                       alignment:
                                           AlignmentDirectional(1.00, 0.00),
                                       child: Padding(
@@ -387,13 +388,13 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(1.00, 0.00),
+                                          AlignmentDirectional(1.00, 0.00),
                                       child: Container(
                                         width: 36.0,
                                         height: 36.0,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
-                                          boxShadow: const [
+                                          boxShadow: [
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x430B0D0F),
@@ -420,7 +421,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -436,9 +437,9 @@ class _HomepageWidgetState extends State<HomepageWidget>
                           text: 'SAIR',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -448,7 +449,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                   color: Colors.white,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -464,7 +465,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
           ),
         ),
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(230.0),
+          preferredSize: Size.fromHeight(230.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
@@ -472,10 +473,13 @@ class _HomepageWidgetState extends State<HomepageWidget>
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: FutureBuilder<List<UsersRow>>(
                     future: UsersTable().querySingleRow(
-                      queryFn: (q) => q,
+                      queryFn: (q) => q.eq(
+                        'user_id',
+                        currentUserUid,
+                      ),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -510,7 +514,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                   fontWeight: FontWeight.w500,
                                 ),
                             colors: [
-                              const Color(0xFFE46D1F),
+                              Color(0xFFE46D1F),
                               FlutterFlowTheme.of(context).secondary
                             ],
                             gradientDirection: GradientDirection.ltr,
@@ -545,7 +549,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -566,7 +570,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                               fontWeight: FontWeight.w600,
                             ),
                         colors: [
-                          const Color(0xFFE46D1F),
+                          Color(0xFFE46D1F),
                           FlutterFlowTheme.of(context).secondary
                         ],
                         gradientDirection: GradientDirection.ltr,
@@ -576,10 +580,10 @@ class _HomepageWidgetState extends State<HomepageWidget>
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.00, 0.00),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 6.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 6.0),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
@@ -587,7 +591,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 10.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -598,15 +602,15 @@ class _HomepageWidgetState extends State<HomepageWidget>
                               text: 'Monte Sua Pizza',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 10.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: valueOrDefault<Color>(
                                   () {
                                     if (FFAppState().MenuCondicao ==
                                         'Monte Sua Pizza') {
-                                      return const Color(0xFFE46D1F);
+                                      return Color(0xFFE46D1F);
                                     } else if (FFAppState().MenuCondicao !=
                                         'Monte Sua Pizza') {
                                       return FlutterFlowTheme.of(context)
@@ -616,7 +620,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                           .secondaryBackground;
                                     }
                                   }(),
-                                  const Color(0xFFE46D1F),
+                                  Color(0xFFE46D1F),
                                 ),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -627,7 +631,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       fontSize: 18.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -636,7 +640,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 10.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -647,14 +651,14 @@ class _HomepageWidgetState extends State<HomepageWidget>
                               text: 'Pizzas',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 10.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: valueOrDefault<Color>(
                                   () {
                                     if (FFAppState().MenuCondicao == 'Pizza') {
-                                      return const Color(0xFFE46D1F);
+                                      return Color(0xFFE46D1F);
                                     } else if (FFAppState().MenuCondicao !=
                                         'Pizza') {
                                       return FlutterFlowTheme.of(context)
@@ -676,7 +680,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       fontSize: 18.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -685,7 +689,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 10.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -696,15 +700,15 @@ class _HomepageWidgetState extends State<HomepageWidget>
                               text: 'Bebidas',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 10.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: valueOrDefault<Color>(
                                   () {
                                     if (FFAppState().MenuCondicao ==
                                         'Bebidas') {
-                                      return const Color(0xFFE46D1F);
+                                      return Color(0xFFE46D1F);
                                     } else if (FFAppState().MenuCondicao !=
                                         'Bebidas') {
                                       return FlutterFlowTheme.of(context)
@@ -726,7 +730,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       fontSize: 18.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -741,7 +745,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                 ),
               ],
             ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation1']!),
-            actions: const [],
+            actions: [],
             centerTitle: false,
             toolbarHeight: 230.0,
             elevation: 0.0,
@@ -755,7 +759,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
               children: [
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 10.0),
+                      EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 10.0),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -763,7 +767,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                       children: [
                         Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                         ),
                       ],
                     ),
@@ -771,7 +775,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                 ),
                 if (FFAppState().MenuCondicao == 'Monte Sua Pizza')
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -780,7 +784,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -794,7 +798,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                   controller: _model.pizzasalgadaController1,
                                   child: ExpandablePanel(
                                     header: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 10.0, 10.0, 10.0),
                                       child: Text(
                                         'Pizza Grande',
@@ -810,7 +814,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     collapsed: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -842,7 +846,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                             BorderRadius.circular(8.0),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 10.0, 10.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -858,7 +862,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 10.0, 10.0, 10.0),
                                               child: Column(
@@ -900,7 +904,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 0.0, 0.0, 0.0),
                                               child: FFButtonWidget(
@@ -911,14 +915,14 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                 text: 'Montar',
                                                 options: FFButtonOptions(
                                                   height: 40.0,
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 16.0, 0.0),
                                                   iconPadding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
-                                                  color: const Color(0xFFE46D1F),
+                                                  color: Color(0xFFE46D1F),
                                                   textStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -930,7 +934,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                             fontSize: 18.0,
                                                           ),
                                                   elevation: 3.0,
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
@@ -966,7 +970,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                 if (FFAppState().MenuCondicao == 'Monte Sua Pizza')
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -975,7 +979,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -989,7 +993,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                   controller: _model.pizzasalgadaController2,
                                   child: ExpandablePanel(
                                     header: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 10.0, 10.0, 10.0),
                                       child: Text(
                                         'Pizza Extra Grande',
@@ -1005,7 +1009,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     collapsed: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1030,7 +1034,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 10.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1049,7 +1053,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 10.0,
                                                                 10.0,
@@ -1073,7 +1077,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       15.0,
                                                                       10.0,
@@ -1128,7 +1132,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       0.0,
@@ -1142,7 +1146,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                 extra: <String,
                                                                     dynamic>{
                                                                   kTransitionInfoKey:
-                                                                      const TransitionInfo(
+                                                                      TransitionInfo(
                                                                     hasTransition:
                                                                         true,
                                                                     transitionType:
@@ -1157,20 +1161,20 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                 FFButtonOptions(
                                                               height: 40.0,
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
                                                                           0.0),
                                                               iconPadding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                              color: const Color(
+                                                              color: Color(
                                                                   0xFFE46D1F),
                                                               textStyle:
                                                                   FlutterFlowTheme.of(
@@ -1186,7 +1190,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                       ),
                                                               elevation: 3.0,
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Colors
                                                                     .transparent,
                                                                 width: 1.0,
@@ -1222,7 +1226,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                           8.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
                                                           10.0, 10.0),
                                                   child: Row(
@@ -1242,7 +1246,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     15.0,
                                                                     10.0,
@@ -1296,7 +1300,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -1309,7 +1313,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
-                                                                    const TransitionInfo(
+                                                                    TransitionInfo(
                                                                   hasTransition:
                                                                       true,
                                                                   transitionType:
@@ -1324,20 +1328,20 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                               FFButtonOptions(
                                                             height: 40.0,
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
                                                                         16.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFFE46D1F),
                                                             textStyle:
                                                                 FlutterFlowTheme.of(
@@ -1353,7 +1357,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                     ),
                                                             elevation: 3.0,
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Colors
                                                                   .transparent,
                                                               width: 1.0,
@@ -1396,7 +1400,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                 if (FFAppState().MenuCondicao == 'Pizza')
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1405,7 +1409,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -1419,7 +1423,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                   controller: _model.pizzasalgadaController3,
                                   child: ExpandablePanel(
                                     header: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 10.0, 10.0, 10.0),
                                       child: Text(
                                         'Pizza Salgada',
@@ -1435,7 +1439,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     collapsed: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1456,7 +1460,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     expanded: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 32.0),
                                       child: FutureBuilder<List<ProdutosRow>>(
                                         future: ProdutosTable().queryRows(
@@ -1500,7 +1504,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                   listViewProdutosRowList[
                                                       listViewIndex];
                                               return Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 8.0),
                                                 child: InkWell(
@@ -1531,7 +1535,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
-                                                      boxShadow: const [
+                                                      boxShadow: [
                                                         BoxShadow(
                                                           blurRadius: 4.0,
                                                           color:
@@ -1546,7 +1550,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   8.0,
@@ -1576,7 +1580,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -1619,7 +1623,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 5.0,
                                                                                 0.0,
@@ -1707,7 +1711,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                 if (FFAppState().MenuCondicao == 'Pizza')
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1716,7 +1720,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -1730,7 +1734,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                   controller: _model.pizzasalgadaController4,
                                   child: ExpandablePanel(
                                     header: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 10.0, 10.0, 10.0),
                                       child: Text(
                                         'Pizza Doce',
@@ -1746,7 +1750,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     collapsed: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -1767,7 +1771,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     expanded: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 32.0),
                                       child: FutureBuilder<List<ProdutosRow>>(
                                         future: ProdutosTable().queryRows(
@@ -1811,7 +1815,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                   listViewProdutosRowList[
                                                       listViewIndex];
                                               return Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 8.0),
                                                 child: InkWell(
@@ -1842,7 +1846,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
-                                                      boxShadow: const [
+                                                      boxShadow: [
                                                         BoxShadow(
                                                           blurRadius: 4.0,
                                                           color:
@@ -1857,7 +1861,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   8.0,
@@ -1887,7 +1891,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -1930,7 +1934,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 5.0,
                                                                                 0.0,
@@ -2018,7 +2022,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                 if (FFAppState().MenuCondicao == 'Pizza')
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -2027,7 +2031,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -2041,7 +2045,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                   controller: _model.pizzasalgadaController5,
                                   child: ExpandablePanel(
                                     header: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 10.0, 10.0, 10.0),
                                       child: Text(
                                         'Pizza Broto',
@@ -2057,7 +2061,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     collapsed: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -2078,7 +2082,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     expanded: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 32.0),
                                       child: FutureBuilder<List<ProdutosRow>>(
                                         future: ProdutosTable().queryRows(
@@ -2122,7 +2126,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                   listViewProdutosRowList[
                                                       listViewIndex];
                                               return Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 8.0),
                                                 child: InkWell(
@@ -2153,7 +2157,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
-                                                      boxShadow: const [
+                                                      boxShadow: [
                                                         BoxShadow(
                                                           blurRadius: 4.0,
                                                           color:
@@ -2168,7 +2172,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   8.0,
@@ -2198,7 +2202,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -2241,7 +2245,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 5.0,
                                                                                 0.0,
@@ -2328,7 +2332,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                 if (FFAppState().MenuCondicao == 'Bebidas')
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -2337,7 +2341,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -2351,7 +2355,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                   controller: _model.pizzasalgadaController6,
                                   child: ExpandablePanel(
                                     header: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 10.0, 10.0, 10.0),
                                       child: Text(
                                         'Sucos Naturais',
@@ -2367,7 +2371,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     collapsed: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -2388,7 +2392,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     expanded: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 32.0),
                                       child: FutureBuilder<List<ProdutosRow>>(
                                         future: ProdutosTable().queryRows(
@@ -2432,7 +2436,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                   listViewProdutosRowList[
                                                       listViewIndex];
                                               return Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 8.0),
                                                 child: InkWell(
@@ -2456,7 +2460,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       }.withoutNulls,
                                                       extra: <String, dynamic>{
                                                         kTransitionInfoKey:
-                                                            const TransitionInfo(
+                                                            TransitionInfo(
                                                           hasTransition: true,
                                                           transitionType:
                                                               PageTransitionType
@@ -2472,7 +2476,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
-                                                      boxShadow: const [
+                                                      boxShadow: [
                                                         BoxShadow(
                                                           blurRadius: 4.0,
                                                           color:
@@ -2487,7 +2491,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   8.0,
@@ -2517,7 +2521,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -2560,7 +2564,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 5.0,
                                                                                 0.0,
@@ -2650,7 +2654,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                 if (FFAppState().MenuCondicao == 'Bebidas')
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 0.0),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -2659,7 +2663,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -2673,7 +2677,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                   controller: _model.pizzasalgadaController7,
                                   child: ExpandablePanel(
                                     header: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 10.0, 10.0, 10.0),
                                       child: Text(
                                         'Refrigerantes',
@@ -2689,7 +2693,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     collapsed: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -2710,7 +2714,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       ),
                                     ),
                                     expanded: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 32.0),
                                       child: FutureBuilder<List<ProdutosRow>>(
                                         future: ProdutosTable().queryRows(
@@ -2754,7 +2758,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                   listViewProdutosRowList[
                                                       listViewIndex];
                                               return Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 8.0),
                                                 child: InkWell(
@@ -2778,7 +2782,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       }.withoutNulls,
                                                       extra: <String, dynamic>{
                                                         kTransitionInfoKey:
-                                                            const TransitionInfo(
+                                                            TransitionInfo(
                                                           hasTransition: true,
                                                           transitionType:
                                                               PageTransitionType
@@ -2794,7 +2798,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
-                                                      boxShadow: const [
+                                                      boxShadow: [
                                                         BoxShadow(
                                                           blurRadius: 4.0,
                                                           color:
@@ -2809,7 +2813,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   8.0,
@@ -2839,7 +2843,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           12.0,
                                                                           0.0,
@@ -2882,7 +2886,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                                         Expanded(
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 5.0,
                                                                                 0.0,
@@ -2968,12 +2972,12 @@ class _HomepageWidgetState extends State<HomepageWidget>
                   ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(
-                        child: SizedBox(
+                        child: Container(
                           width: double.infinity,
                           height: 180.0,
                           child: CarouselSlider(

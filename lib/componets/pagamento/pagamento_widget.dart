@@ -1,3 +1,5 @@
+import '/auth/supabase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_credit_card_form.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -6,14 +8,16 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pagamento_model.dart';
 export 'pagamento_model.dart';
 
 class PagamentoWidget extends StatefulWidget {
-  const PagamentoWidget({super.key});
+  const PagamentoWidget({Key? key}) : super(key: key);
 
   @override
   _PagamentoWidgetState createState() => _PagamentoWidgetState();
@@ -59,22 +63,22 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
             color: FlutterFlowTheme.of(context).accent4,
           ),
           child: Align(
-            alignment: const AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.00, 0.00),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 120.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 120.0, 0.0, 0.0),
                     child: Container(
                       width: double.infinity,
-                      constraints: const BoxConstraints(
+                      constraints: BoxConstraints(
                         maxWidth: 570.0,
                       ),
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        boxShadow: const [
+                        boxShadow: [
                           BoxShadow(
                             blurRadius: 4.0,
                             color: Color(0x25090F13),
@@ -84,14 +88,14 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 4.0, 16.0, 16.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -113,7 +117,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
                                             'Preencha as informações abaixo para concluir seu pedido.',
@@ -125,7 +129,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 12.0, 0.0),
                                     child: FlutterFlowIconButton(
                                       borderColor: FlutterFlowTheme.of(context)
@@ -143,7 +147,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                         context.pushNamed(
                                           'pedidos_cliente',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: const TransitionInfo(
+                                            kTransitionInfoKey: TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -163,13 +167,13 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                   .primaryBackground,
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 12.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
                                     child: FlutterFlowCreditCardForm(
                                       formKey: _model.creditCardFormKey,
@@ -205,7 +209,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 8.0, 12.0, 4.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -236,7 +240,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                               produtosCard[produtosCardIndex];
                                           return Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 4.0, 12.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -259,7 +263,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -350,7 +354,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                               ),
                                                         ),
                                                         Text(
-                                                          formatNumber(
+                                                          '${formatNumber(
                                                             produtosCardItem
                                                                 .valorpreferecias,
                                                             formatType:
@@ -359,7 +363,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                             currency: 'R\$',
                                                             format: '0.00',
                                                             locale: 'pt_BR',
-                                                          ),
+                                                          )}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .titleLarge
@@ -380,7 +384,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                       );
                                     },
                                   ),
-                                  const Padding(
+                                  Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 4.0, 12.0, 0.0),
                                     child: Row(
@@ -403,7 +407,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 4.0, 12.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -424,7 +428,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 4.0, 12.0, 16.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -479,7 +483,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 0.0),
                                     child:
                                         FutureBuilder<List<PedidosCarrinhoRow>>(
@@ -521,6 +525,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                               'numero_pedido':
                                                   buttonPedidosCarrinhoRowList
                                                       .last.numeroPedido,
+                                              'user_id': currentUserUid,
                                             });
                                             await Future.delayed(const Duration(
                                                 milliseconds: 1000));
@@ -535,7 +540,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                               'pedidos_cliente',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    const TransitionInfo(
+                                                    TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -550,10 +555,10 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                             width: 270.0,
                                             height: 50.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
@@ -561,7 +566,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall,
                                             elevation: 2.0,
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -578,7 +583,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                     desktop: false,
                                   ))
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () {
@@ -594,10 +599,10 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                           width: 270.0,
                                           height: 50.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
@@ -613,7 +618,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           elevation: 2.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),

@@ -4,16 +4,19 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pedidos_cliente_model.dart';
 export 'pedidos_cliente_model.dart';
 
 class PedidosClienteWidget extends StatefulWidget {
-  const PedidosClienteWidget({super.key});
+  const PedidosClienteWidget({Key? key}) : super(key: key);
 
   @override
   _PedidosClienteWidgetState createState() => _PedidosClienteWidgetState();
@@ -40,8 +43,8 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(-60.0, 0.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(-60.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -59,8 +62,8 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -78,8 +81,8 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 80.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 80.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -136,7 +139,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                   fontSize: 34.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 0.0,
         ),
@@ -147,10 +150,10 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.00, 0.00),
                   child: Container(
                     width: double.infinity,
-                    constraints: const BoxConstraints(
+                    constraints: BoxConstraints(
                       maxWidth: 1170.0,
                     ),
                     decoration: BoxDecoration(
@@ -166,7 +169,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                           tablet: false,
                         ))
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 12.0, 0.0, 0.0),
                             child: Text(
                               'Meus Pedidos',
@@ -174,7 +177,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                             ),
                           ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 4.0, 0.0, 12.0),
                           child: Text(
                             'Pedidos Recentes',
@@ -182,9 +185,9 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                           ).animateOnPageLoad(
                               animationsMap['textOnPageLoadAnimation']!),
                         ),
-                        if (currentUserUid != '')
+                        if (currentUserUid != null && currentUserUid != '')
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 20.0),
                             child: FutureBuilder<List<NumbersPedRow>>(
                               future: NumbersPedTable().queryRows(
@@ -219,14 +222,14 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                         listViewNumbersPedRowList[
                                             listViewIndex];
                                     return Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 12.0),
                                       child: Container(
                                         width: double.infinity,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                          boxShadow: const [
+                                          boxShadow: [
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x520E151B),
@@ -238,7 +241,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 12.0, 12.0, 12.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -248,7 +251,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 10.0),
                                                 child: Row(
@@ -276,11 +279,11 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                         ),
                                                       ),
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.00, 0.00),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     16.0,
                                                                     0.0,
@@ -307,7 +310,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   0.0,
@@ -492,7 +495,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     4.0,
@@ -523,7 +526,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -559,7 +562,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                             ),
                           ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 10.0, 10.0, 10.0),
                           child: Container(
                             width: double.infinity,
@@ -590,7 +593,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                   ],
                                 ),
                                 expanded: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 32.0),
                                   child: ListView(
                                     padding: EdgeInsets.zero,
@@ -599,7 +602,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                     scrollDirection: Axis.vertical,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 8.0),
                                         child: Container(
                                           width: double.infinity,
@@ -607,7 +610,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
-                                            boxShadow: const [
+                                            boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x520E151B),
@@ -619,7 +622,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 8.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -640,7 +643,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(12.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Column(
@@ -661,7 +664,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       5.0,
@@ -676,7 +679,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       4.0,
@@ -692,7 +695,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             4.0,

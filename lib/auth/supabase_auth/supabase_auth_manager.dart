@@ -23,10 +23,10 @@ class SupabaseAuthManager extends AuthManager with EmailSignInManager {
         return;
       }
       await currentUser?.delete();
-    } on AuthException {
+    } on AuthException catch (e) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao entrar')),
+        SnackBar(content: Text('Erro ao entrar')),
       );
     }
   }
@@ -42,15 +42,15 @@ class SupabaseAuthManager extends AuthManager with EmailSignInManager {
         return;
       }
       await currentUser?.updateEmail(email);
-    } on AuthException {
+    } on AuthException catch (e) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao entrar')),
+        SnackBar(content: Text('Erro ao entrar')),
       );
       return;
     }
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('confirme seu e-mail')),
+      SnackBar(content: Text('confirme seu e-mail')),
     );
   }
 
@@ -61,15 +61,15 @@ class SupabaseAuthManager extends AuthManager with EmailSignInManager {
   }) async {
     try {
       await SupaFlow.client.auth.resetPasswordForEmail(email);
-    } on AuthException {
+    } on AuthException catch (e) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao entrar')),
+        SnackBar(content: Text('Erro ao entrar')),
       );
       return null;
     }
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Password reset email sent')),
+      SnackBar(content: Text('Password reset email sent')),
     );
   }
 
@@ -115,10 +115,10 @@ class SupabaseAuthManager extends AuthManager with EmailSignInManager {
         AppStateNotifier.instance.update(authUser);
       }
       return authUser;
-    } on AuthException {
+    } on AuthException catch (e) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Erro ao entrar')),
+        SnackBar(content: Text('Erro ao entrar')),
       );
       return null;
     }

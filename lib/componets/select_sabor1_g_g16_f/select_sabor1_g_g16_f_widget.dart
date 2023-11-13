@@ -1,16 +1,20 @@
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'select_sabor1_g_g16_f_model.dart';
 export 'select_sabor1_g_g16_f_model.dart';
 
 class SelectSabor1GG16FWidget extends StatefulWidget {
-  const SelectSabor1GG16FWidget({super.key});
+  const SelectSabor1GG16FWidget({Key? key}) : super(key: key);
 
   @override
   _SelectSabor1GG16FWidgetState createState() =>
@@ -37,15 +41,15 @@ class _SelectSabor1GG16FWidgetState extends State<SelectSabor1GG16FWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: const Offset(120.0, 0.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(120.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
         TiltEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: const Offset(0, 0.873),
-          end: const Offset(0, 0),
+          begin: Offset(0, 0.873),
+          end: Offset(0, 0),
         ),
       ],
     ),
@@ -79,12 +83,12 @@ class _SelectSabor1GG16FWidgetState extends State<SelectSabor1GG16FWidget>
       children: [
         Flexible(
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 90.0, 16.0, 32.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 90.0, 16.0, 32.0),
             child: Container(
               width: 370.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
                     blurRadius: 4.0,
                     color: Color(0x33000000),
@@ -94,7 +98,7 @@ class _SelectSabor1GG16FWidgetState extends State<SelectSabor1GG16FWidget>
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -129,7 +133,7 @@ class _SelectSabor1GG16FWidgetState extends State<SelectSabor1GG16FWidget>
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 12.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 12.0),
                         child: Text(
                           'Obrigatório escolher esse sabor.',
                           style: FlutterFlowTheme.of(context).labelMedium,
@@ -169,7 +173,7 @@ class _SelectSabor1GG16FWidgetState extends State<SelectSabor1GG16FWidget>
                               final listViewProdutosRow =
                                   listViewProdutosRowList[listViewIndex];
                               return Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 6.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -203,14 +207,14 @@ class _SelectSabor1GG16FWidgetState extends State<SelectSabor1GG16FWidget>
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 4.0, 0.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 6.0, 4.0, 6.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,

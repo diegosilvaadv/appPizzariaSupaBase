@@ -1,8 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
+import '/backend/schema/structs/index.dart';
 
 import '/backend/supabase/supabase.dart';
 import '/auth/base_auth_user_provider.dart';
@@ -10,7 +13,10 @@ import '/auth/base_auth_user_provider.dart';
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -75,25 +81,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
           name: 'login',
           path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
           name: 'homepage',
           path: '/homepage',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'homepage')
-              : const HomepageWidget(),
+              ? NavBarPage(initialPage: 'homepage')
+              : HomepageWidget(),
         ),
         FFRoute(
           name: 'detalhes_produtos',
@@ -107,30 +113,30 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'carrinho',
           path: '/carrinho',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'carrinho')
-              : const CarrinhoWidget(),
+              ? NavBarPage(initialPage: 'carrinho')
+              : CarrinhoWidget(),
         ),
         FFRoute(
           name: 'detalhes_produtos_2sab',
           path: '/detalhesProdutos2sab',
-          builder: (context, params) => const DetalhesProdutos2sabWidget(),
+          builder: (context, params) => DetalhesProdutos2sabWidget(),
         ),
         FFRoute(
           name: 'pedidos_cliente',
           path: '/pedidosCliente',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'pedidos_cliente')
-              : const PedidosClienteWidget(),
+              ? NavBarPage(initialPage: 'pedidos_cliente')
+              : PedidosClienteWidget(),
         ),
         FFRoute(
           name: 'detalhes_produtos_4Sab',
           path: '/detalhesProdutos4Sab',
-          builder: (context, params) => const DetalhesProdutos4SabWidget(),
+          builder: (context, params) => DetalhesProdutos4SabWidget(),
         ),
         FFRoute(
           name: 'detalhes_produtos_2sabGG',
           path: '/detalhesProdutos2sabGG',
-          builder: (context, params) => const DetalhesProdutos2sabGGWidget(),
+          builder: (context, params) => DetalhesProdutos2sabGGWidget(),
         ),
         FFRoute(
           name: 'detalhes_produtosBebidas',
@@ -366,7 +372,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

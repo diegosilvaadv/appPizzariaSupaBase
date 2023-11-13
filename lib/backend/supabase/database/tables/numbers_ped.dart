@@ -9,7 +9,7 @@ class NumbersPedTable extends SupabaseTable<NumbersPedRow> {
 }
 
 class NumbersPedRow extends SupabaseDataRow {
-  NumbersPedRow(super.data);
+  NumbersPedRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => NumbersPedTable();
@@ -20,12 +20,12 @@ class NumbersPedRow extends SupabaseDataRow {
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
 
-  int? get referencia => getField<int>('referencia');
-  set referencia(int? value) => setField<int>('referencia', value);
-
   String? get status => getField<String>('status');
   set status(String? value) => setField<String>('status', value);
 
   int? get numeroPedido => getField<int>('numero_pedido');
   set numeroPedido(int? value) => setField<int>('numero_pedido', value);
+
+  String? get userId => getField<String>('user_id');
+  set userId(String? value) => setField<String>('user_id', value);
 }

@@ -2,18 +2,20 @@ import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'detalhes_produtos_bebidas_model.dart';
 export 'detalhes_produtos_bebidas_model.dart';
 
 class DetalhesProdutosBebidasWidget extends StatefulWidget {
   const DetalhesProdutosBebidasWidget({
-    super.key,
+    Key? key,
     required this.produtoRef,
-  });
+  }) : super(key: key);
 
   final ProdutosRow? produtoRef;
 
@@ -66,7 +68,7 @@ class _DetalhesProdutosBebidasWidgetState
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                 child: Card(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -76,7 +78,7 @@ class _DetalhesProdutosBebidasWidgetState
                   ),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -84,12 +86,12 @@ class _DetalhesProdutosBebidasWidgetState
                           Stack(
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.00, 0.00),
                                 child: Hero(
                                   tag: widget.produtoRef!.img!,
                                   transitionOnUserGestures: true,
                                   child: ClipRRect(
-                                    borderRadius: const BorderRadius.only(
+                                    borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(16.0),
                                       bottomRight: Radius.circular(16.0),
                                       topLeft: Radius.circular(0.0),
@@ -106,7 +108,7 @@ class _DetalhesProdutosBebidasWidgetState
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 30.0, 10.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -151,14 +153,14 @@ class _DetalhesProdutosBebidasWidgetState
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 5.0, 10.0, 5.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           3.0, 3.0, 3.0, 3.0),
                                                   child: Text(
@@ -195,7 +197,7 @@ class _DetalhesProdutosBebidasWidgetState
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -218,7 +220,7 @@ class _DetalhesProdutosBebidasWidgetState
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -247,7 +249,7 @@ class _DetalhesProdutosBebidasWidgetState
                             color: FlutterFlowTheme.of(context).secondaryText,
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -273,7 +275,7 @@ class _DetalhesProdutosBebidasWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
-                                        color: const Color(0xFF26CB3A),
+                                        color: Color(0xFF26CB3A),
                                         fontSize: 25.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -291,7 +293,7 @@ class _DetalhesProdutosBebidasWidgetState
             Material(
               color: Colors.transparent,
               elevation: 10.0,
-              shape: const RoundedRectangleBorder(
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(0.0),
                   bottomRight: Radius.circular(0.0),
@@ -304,14 +306,14 @@ class _DetalhesProdutosBebidasWidgetState
                 height: 70.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
                       blurRadius: 5.0,
                       color: Color(0x411D2429),
                       offset: Offset(0.0, -2.0),
                     )
                   ],
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
                     bottomRight: Radius.circular(0.0),
                     topLeft: Radius.circular(8.0),
@@ -326,10 +328,10 @@ class _DetalhesProdutosBebidasWidgetState
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(-1.00, 0.00),
+                      alignment: AlignmentDirectional(-1.00, 0.00),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                            EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
                         child: Container(
                           width: 116.0,
                           height: 100.0,
@@ -339,7 +341,7 @@ class _DetalhesProdutosBebidasWidgetState
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -412,16 +414,16 @@ class _DetalhesProdutosBebidasWidgetState
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 6.0, 6.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 6.0, 6.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.6,
                         height: 100.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFF10DA26),
+                          color: Color(0xFF10DA26),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -451,7 +453,7 @@ class _DetalhesProdutosBebidasWidgetState
                               context.pushNamed(
                                 'homepage',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
+                                  kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                   ),

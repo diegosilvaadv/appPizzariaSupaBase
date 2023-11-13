@@ -1,3 +1,5 @@
+import '/auth/supabase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/componets/pagamento/pagamento_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -7,14 +9,16 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'carrinho_model.dart';
 export 'carrinho_model.dart';
 
 class CarrinhoWidget extends StatefulWidget {
-  const CarrinhoWidget({super.key});
+  const CarrinhoWidget({Key? key}) : super(key: key);
 
   @override
   _CarrinhoWidgetState createState() => _CarrinhoWidgetState();
@@ -41,8 +45,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(-60.0, 0.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(-60.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -73,8 +77,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 50.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -92,8 +96,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 60.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -145,7 +149,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
               IconThemeData(color: FlutterFlowTheme.of(context).primaryText),
           automaticallyImplyLeading: false,
           title: Align(
-            alignment: const AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.00, 0.00),
             child: InkWell(
               splashColor: Colors.transparent,
               focusColor: Colors.transparent,
@@ -169,7 +173,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
               ),
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 0.0,
         ),
@@ -191,7 +195,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 20.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -220,7 +224,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                 ),
                               if (FFAppState().numberCarrinho != 0)
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -233,17 +237,17 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                     text: 'Limpar',
                                     options: FFButtonOptions(
                                       height: 48.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyLarge,
                                       elevation: 0.0,
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -259,7 +263,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                               animationsMap['rowOnPageLoadAnimation']!),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 6.0, 0.0, 0.0),
                           child: Builder(
                             builder: (context) {
@@ -274,7 +278,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                 itemBuilder: (context, pedidosIndex) {
                                   final pedidosItem = pedidos[pedidosIndex];
                                   return Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 8.0),
                                     child: Container(
                                       width: 100.0,
@@ -285,7 +289,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                             BorderRadius.circular(16.0),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 10.0, 10.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -302,7 +306,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         6.0, 6.0, 6.0, 6.0),
                                                 child: Column(
@@ -320,7 +324,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                         Expanded(
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         6.0,
                                                                         0.0,
@@ -348,7 +352,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   6.0,
@@ -368,7 +372,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                       .start,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           6.0,
                                                                           0.0,
@@ -380,7 +384,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                             .max,
                                                                     children: [
                                                                       Text(
-                                                                        formatNumber(
+                                                                        '${formatNumber(
                                                                           pedidosItem.valor +
                                                                               pedidosItem.valorBebidas +
                                                                               pedidosItem.valorSabor1 +
@@ -395,18 +399,18 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                               '0.00',
                                                                           locale:
                                                                               'pt_BR',
-                                                                        ),
+                                                                        )}',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
-                                                                              color: const Color(0xFF26CB3A),
+                                                                              color: Color(0xFF26CB3A),
                                                                               fontSize: 20.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             4.0,
                                                                             0.0,
                                                                             0.0,
@@ -435,7 +439,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   6.0,
@@ -451,7 +455,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             6.0,
                                                                             0.0,
@@ -491,7 +495,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Readex Pro',
-                                                                              color: const Color(0xFF10DA26),
+                                                                              color: Color(0xFF10DA26),
                                                                               fontSize: 16.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
@@ -524,7 +528,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                         if (pedidosItem.valorpreferecias !=
                                                                             0.0)
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -552,7 +556,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                               ),
                                             ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.00, 0.00),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -624,7 +628,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                         ),
                         if (FFAppState().numberCarrinho == 0)
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 50.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -651,7 +655,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                 Material(
                   color: Colors.transparent,
                   elevation: 10.0,
-                  shape: const RoundedRectangleBorder(
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(0.0),
@@ -664,14 +668,14 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                     height: 80.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: const [
+                      boxShadow: [
                         BoxShadow(
                           blurRadius: 5.0,
                           color: Color(0x411D2429),
                           offset: Offset(0.0, -2.0),
                         )
                       ],
-                      borderRadius: const BorderRadius.only(
+                      borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(0.0),
                         bottomRight: Radius.circular(0.0),
                         topLeft: Radius.circular(8.0),
@@ -686,7 +690,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               6.0, 6.0, 6.0, 6.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.9,
@@ -697,7 +701,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   6.0, 0.0, 6.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -734,13 +738,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Readex Pro',
-                                          color: const Color(0xFF26CB3A),
+                                          color: Color(0xFF26CB3A),
                                           fontSize: 20.0,
                                         ),
                                   ),
                                   Builder(
                                     builder: (context) => Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           6.0, 0.0, 0.0, 0.0),
                                       child: FutureBuilder<
                                           List<PedidosCarrinhoRow>>(
@@ -773,7 +777,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                           return FFButtonWidget(
                                             onPressed: () async {
                                               if (FFAppState()
-                                                      .ProdutosDoCarrinho.isNotEmpty) {
+                                                      .ProdutosDoCarrinho
+                                                      .length >=
+                                                  1) {
                                                 setState(() {
                                                   FFAppState().contador = -1;
                                                 });
@@ -825,11 +831,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                 .last
                                                                 .numeroPedido! +
                                                             1,
-                                                    'user':
-                                                        buttonPedidosCarrinhoRowList[
-                                                                FFAppState()
-                                                                    .contador]
-                                                            .user,
+                                                    'user_id': currentUserUid,
                                                   });
                                                   await Future.delayed(
                                                       const Duration(
@@ -840,13 +842,13 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                     isGlobal: false,
                                                     avoidOverflow: true,
                                                     targetAnchor:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                                 0.0, 0.0)
                                                             .resolve(
                                                                 Directionality.of(
                                                                     context)),
                                                     followerAnchor:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                                 0.0, 0.0)
                                                             .resolve(
                                                                 Directionality.of(
@@ -868,7 +870,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                                       context)
                                                                   .unfocus(),
                                                           child:
-                                                              const PagamentoWidget(),
+                                                              PagamentoWidget(),
                                                         ),
                                                       );
                                                     },
@@ -882,10 +884,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                             text: 'Ir Para Pagamento',
                                             options: FFButtonOptions(
                                               height: 40.0,
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 0.0, 15.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
+                                              iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -899,7 +901,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                         color: Colors.white,
                                                       ),
                                               elevation: 3.0,
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
