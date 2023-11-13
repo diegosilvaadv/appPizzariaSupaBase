@@ -18,12 +18,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CarrinhoModel extends FlutterFlowModel<CarrinhoWidget> {
-  ///  Local state fields for this page.
-
-  ProdutosCarrinhoStruct? prodcard;
-  void updateProdcardStruct(Function(ProdutosCarrinhoStruct) updateFn) =>
-      updateFn(prodcard ??= ProdutosCarrinhoStruct());
-
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
