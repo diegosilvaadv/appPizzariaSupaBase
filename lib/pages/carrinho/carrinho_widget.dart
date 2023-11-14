@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -781,6 +782,21 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                       .ProdutosDoCarrinho
                                                       .length >=
                                                   1) {
+                                                unawaited(
+                                                  () async {
+                                                    await NumbersPedTable()
+                                                        .insert({
+                                                      'created_at': supaSerialize<
+                                                              DateTime>(
+                                                          getCurrentTimestamp),
+                                                      'status': 'Não pago',
+                                                      'user_id': currentUserUid,
+                                                      'preco_total':
+                                                          FFAppState()
+                                                              .totalprice,
+                                                    });
+                                                  }(),
+                                                );
                                                 await Future.delayed(
                                                     const Duration(
                                                         milliseconds: 1000));
