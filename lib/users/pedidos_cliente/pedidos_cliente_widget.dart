@@ -1,5 +1,6 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
+import '/components/action2_sheet_simple_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -373,15 +374,41 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                           size: 24.0,
                                                         ),
                                                         onPressed: () async {
-                                                          await NumbersPedTable()
-                                                              .delete(
-                                                            matchingRows:
-                                                                (rows) =>
-                                                                    rows.eq(
-                                                              'user_id',
-                                                              currentUserUid,
-                                                            ),
-                                                          );
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            enableDrag: false,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      Action2SheetSimpleWidget(
+                                                                    deletar:
+                                                                        listViewNumbersPedRow,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
                                                         },
                                                       ),
                                                     ),
