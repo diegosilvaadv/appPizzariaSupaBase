@@ -852,7 +852,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                     'user_id': currentUserUid,
                                                     'numero_pedido':
                                                         buttonNumbersPedRowList
-                                                                .last.id +
+                                                                .last.nPedido! +
                                                             1,
                                                   });
                                                   showAlignedDialog(
