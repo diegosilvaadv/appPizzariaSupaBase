@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
-import 'dart:async';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -749,13 +748,12 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           6.0, 0.0, 0.0, 0.0),
                                       child: FutureBuilder<List<NumbersPedRow>>(
-                                        future: (_model.requestCompleter ??=
-                                                Completer<List<NumbersPedRow>>()
-                                                  ..complete(NumbersPedTable()
-                                                      .queryRows(
-                                                    queryFn: (q) => q,
-                                                  )))
-                                            .future,
+                                        future: NumbersPedTable().queryRows(
+                                          queryFn: (q) => q.eq(
+                                            'user_id',
+                                            currentUserUid,
+                                          ),
+                                        ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
                                           if (!snapshot.hasData) {
@@ -799,10 +797,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                     });
                                                   }(),
                                                 );
-                                                setState(() => _model
-                                                    .requestCompleter = null);
-                                                await _model
-                                                    .waitForRequestCompleted();
+                                                await Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 1000));
                                                 setState(() {
                                                   FFAppState().contador = -1;
                                                 });

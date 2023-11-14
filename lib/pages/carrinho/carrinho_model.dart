@@ -9,7 +9,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'carrinho_widget.dart' show CarrinhoWidget;
-import 'dart:async';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -22,7 +21,6 @@ class CarrinhoModel extends FlutterFlowModel<CarrinhoWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  Completer<List<NumbersPedRow>>? requestCompleter;
 
   /// Initialization and disposal methods.
 
@@ -35,19 +33,4 @@ class CarrinhoModel extends FlutterFlowModel<CarrinhoWidget> {
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
-
-  Future waitForRequestCompleted({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = requestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
 }
