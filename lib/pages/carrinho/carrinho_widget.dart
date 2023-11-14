@@ -794,6 +794,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                       'preco_total':
                                                           FFAppState()
                                                               .totalprice,
+                                                      'N_Pedido':
+                                                          buttonNumbersPedRowList
+                                                                  .last
+                                                                  .nPedido! +
+                                                              1,
                                                     });
                                                   }(),
                                                 );
