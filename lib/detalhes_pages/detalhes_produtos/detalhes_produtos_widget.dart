@@ -288,7 +288,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                 ),
                                 Text(
                                   formatNumber(
-                                    widget.produtoRef!.precoProduto! / 2,
+                                    widget.produtoRef!.valorProduto! / 2,
                                     formatType: FormatType.custom,
                                     currency: 'R\$',
                                     format: '00.00',
@@ -896,13 +896,13 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                         FFAppState().PrefReferencia.valorMassa,
                                     massaNome:
                                         FFAppState().PrefReferencia.nomeMassa,
-                                    valor: widget.produtoRef!.precoProduto! / 2,
+                                    valor: widget.produtoRef!.valorProduto! / 2,
                                     subTotal:
-                                        widget.produtoRef!.precoProduto! / 2,
+                                        widget.produtoRef!.valorProduto! / 2,
                                   ));
                                   FFAppState().totalprice = FFAppState()
                                           .totalprice +
-                                      (widget.produtoRef!.precoProduto! / 2 +
+                                      (widget.produtoRef!.valorProduto! / 2 +
                                               FFAppState().preferec) *
                                           FFAppState().quantity;
                                   FFAppState().condicao = 0;
@@ -954,7 +954,7 @@ class _DetalhesProdutosWidgetState extends State<DetalhesProdutosWidget> {
                                 Text(
                                   valueOrDefault<String>(
                                     formatNumber(
-                                      (widget.produtoRef!.precoProduto! / 2 +
+                                      (widget.produtoRef!.valorProduto! / 2 +
                                               FFAppState().preferec) *
                                           FFAppState().quantity,
                                       formatType: FormatType.custom,

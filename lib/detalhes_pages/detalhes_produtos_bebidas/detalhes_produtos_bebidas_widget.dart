@@ -166,7 +166,7 @@ class _DetalhesProdutosBebidasWidgetState
                                                   child: Text(
                                                     valueOrDefault<String>(
                                                       widget.produtoRef
-                                                          ?.precoProduto
+                                                          ?.valorProduto
                                                           ?.toString(),
                                                       'Nome',
                                                     ).maybeHandleOverflow(
@@ -265,7 +265,7 @@ class _DetalhesProdutosBebidasWidgetState
                                 ),
                                 Text(
                                   formatNumber(
-                                    widget.produtoRef!.precoBebidas!,
+                                    widget.produtoRef!.valorProduto!,
                                     formatType: FormatType.custom,
                                     currency: 'R\$',
                                     format: '0.00',
@@ -437,12 +437,12 @@ class _DetalhesProdutosBebidasWidgetState
                                   nomeProduto: widget.produtoRef?.nomeProduto,
                                   img: widget.produtoRef?.img,
                                   quantity: FFAppState().quantity,
-                                  valorBebidas: widget.produtoRef?.precoBebidas,
-                                  subTotal: widget.produtoRef?.precoBebidas,
+                                  valorBebidas: widget.produtoRef?.valorProduto,
+                                  subTotal: widget.produtoRef?.valorProduto,
                                 ));
                                 FFAppState().totalprice =
                                     FFAppState().totalprice +
-                                        (widget.produtoRef!.precoBebidas!) *
+                                        (widget.produtoRef!.valorProduto!) *
                                             FFAppState().quantity;
                                 FFAppState().condicao = 0;
                                 FFAppState().quantity = 1;
@@ -476,7 +476,7 @@ class _DetalhesProdutosBebidasWidgetState
                                 Text(
                                   valueOrDefault<String>(
                                     formatNumber(
-                                      (widget.produtoRef!.precoBebidas!) *
+                                      (widget.produtoRef!.valorProduto!) *
                                           FFAppState().quantity,
                                       formatType: FormatType.custom,
                                       currency: 'R\$',

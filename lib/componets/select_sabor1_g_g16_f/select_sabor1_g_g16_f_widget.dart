@@ -187,12 +187,12 @@ class _SelectSabor1GG16FWidgetState extends State<SelectSabor1GG16FWidget>
                                           ..sabor1GG =
                                               listViewProdutosRow.nomeProduto
                                           ..precoSab1GG = listViewProdutosRow
-                                                  .precoProduto! /
+                                                  .valorProduto! /
                                               4,
                                       );
                                       FFAppState().precoSabor1 = FFAppState()
                                               .precoSabor1 +
-                                          listViewProdutosRow.precoProduto! / 4;
+                                          listViewProdutosRow.valorProduto! / 4;
                                       FFAppState().condicao =
                                           FFAppState().condicao + 1;
                                     });
@@ -242,7 +242,7 @@ class _SelectSabor1GG16FWidgetState extends State<SelectSabor1GG16FWidget>
                                                       Text(
                                                         formatNumber(
                                                           listViewProdutosRow
-                                                                  .precoProduto! /
+                                                                  .valorProduto! /
                                                               4,
                                                           formatType:
                                                               FormatType.custom,

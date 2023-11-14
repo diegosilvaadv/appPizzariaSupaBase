@@ -1652,7 +1652,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                               Text(
                                                                 formatNumber(
                                                                   listViewProdutosRow
-                                                                          .precoProduto! /
+                                                                          .valorProduto! /
                                                                       2,
                                                                   formatType:
                                                                       FormatType
@@ -1963,7 +1963,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                               Text(
                                                                 formatNumber(
                                                                   listViewProdutosRow
-                                                                          .precoProduto! /
+                                                                          .valorProduto! /
                                                                       2,
                                                                   formatType:
                                                                       FormatType
@@ -2274,7 +2274,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                               Text(
                                                                 formatNumber(
                                                                   listViewProdutosRow
-                                                                      .precoProduto!,
+                                                                      .valorProduto!,
                                                                   formatType:
                                                                       FormatType
                                                                           .custom,
@@ -2596,7 +2596,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                               Text(
                                                                 formatNumber(
                                                                   listViewProdutosRow
-                                                                      .precoBebidas!,
+                                                                      .valorProduto!,
                                                                   formatType:
                                                                       FormatType
                                                                           .custom,
@@ -2915,7 +2915,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                               Text(
                                                                 formatNumber(
                                                                   listViewProdutosRow
-                                                                      .precoBebidas!,
+                                                                      .valorProduto!,
                                                                   formatType:
                                                                       FormatType
                                                                           .custom,

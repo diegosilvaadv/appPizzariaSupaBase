@@ -23,8 +23,8 @@ class ProdutosRow extends SupabaseDataRow {
   String? get nomeProduto => getField<String>('nome_produto');
   set nomeProduto(String? value) => setField<String>('nome_produto', value);
 
-  double? get precoProduto => getField<double>('preco_produto');
-  set precoProduto(double? value) => setField<double>('preco_produto', value);
+  double? get valorProduto => getField<double>('valor_produto');
+  set valorProduto(double? value) => setField<double>('valor_produto', value);
 
   String? get descricao => getField<String>('descricao');
   set descricao(String? value) => setField<String>('descricao', value);
@@ -34,7 +34,4 @@ class ProdutosRow extends SupabaseDataRow {
 
   String? get tag => getField<String>('tag');
   set tag(String? value) => setField<String>('tag', value);
-
-  double? get precoBebidas => getField<double>('preco_bebidas');
-  set precoBebidas(double? value) => setField<double>('preco_bebidas', value);
 }

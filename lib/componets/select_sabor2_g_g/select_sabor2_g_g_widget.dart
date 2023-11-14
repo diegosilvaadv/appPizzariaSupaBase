@@ -186,14 +186,14 @@ class _SelectSabor2GGWidgetState extends State<SelectSabor2GGWidget>
                                           ..sabor2GG =
                                               listViewProdutosRow.nomeProduto
                                           ..precoSab2GG = listViewProdutosRow
-                                                  .precoProduto! /
+                                                  .valorProduto! /
                                               2,
                                       );
                                       FFAppState().condicao =
                                           FFAppState().condicao + 1;
                                       FFAppState().precoSabor2 = FFAppState()
                                               .precoSabor2 +
-                                          listViewProdutosRow.precoProduto! / 2;
+                                          listViewProdutosRow.valorProduto! / 2;
                                     });
                                     Navigator.pop(context);
                                   },
@@ -241,7 +241,7 @@ class _SelectSabor2GGWidgetState extends State<SelectSabor2GGWidget>
                                                       Text(
                                                         formatNumber(
                                                           listViewProdutosRow
-                                                                  .precoProduto! /
+                                                                  .valorProduto! /
                                                               2,
                                                           formatType:
                                                               FormatType.custom,
