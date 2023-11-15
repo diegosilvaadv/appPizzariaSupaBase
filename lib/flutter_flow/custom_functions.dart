@@ -25,3 +25,15 @@ String temposaudacao() {
   }
   return 'Boa Noite, ';
 }
+
+double? calcaularlista(List<double>? numeros) {
+  if (numeros == null || numeros.isEmpty) {
+    return 0;
+  }
+
+  double soma = 0;
+  for (double elemento in numeros) {
+    soma += elemento;
+  }
+  return soma;
+}

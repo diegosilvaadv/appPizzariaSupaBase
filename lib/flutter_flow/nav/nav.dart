@@ -145,6 +145,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             produtoRef: params.getParam<ProdutosRow>(
                 'produtoRef', ParamType.SupabaseRow),
           ),
+        ),
+        FFRoute(
+          name: 'dash',
+          path: '/dash',
+          builder: (context, params) =>
+              params.isEmpty ? NavBarPage(initialPage: 'dash') : DashWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

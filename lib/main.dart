@@ -131,6 +131,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'homepage': HomepageWidget(),
       'carrinho': CarrinhoWidget(),
       'pedidos_cliente': PedidosClienteWidget(),
+      'dash': DashWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -169,6 +170,18 @@ class _NavBarPageState extends State<NavBarPage> {
             icon: Icon(
               Icons.history_rounded,
               size: 24.0,
+            ),
+            label: '__',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.dashboard_outlined,
+              size: 24.0,
+            ),
+            activeIcon: Icon(
+              Icons.dashboard_rounded,
+              size: 32.0,
             ),
             label: '__',
             tooltip: '',
