@@ -536,11 +536,17 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 0.0),
                                       child: FutureBuilder<List<NumbersPedRow>>(
-                                        future: NumbersPedTable().queryRows(
-                                          queryFn: (q) => q.eq(
-                                            'user_id',
-                                            currentUserUid,
-                                          ),
+                                        future:
+                                            NumbersPedTable().querySingleRow(
+                                          queryFn: (q) => q
+                                              .eq(
+                                                'user_id',
+                                                currentUserUid,
+                                              )
+                                              .eq(
+                                                'status',
+                                                'Não Pago',
+                                              ),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
@@ -564,6 +570,11 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                           List<NumbersPedRow>
                                               buttonNumbersPedRowList =
                                               snapshot.data!;
+                                          final buttonNumbersPedRow =
+                                              buttonNumbersPedRowList.isNotEmpty
+                                                  ? buttonNumbersPedRowList
+                                                      .first
+                                                  : null;
                                           return FFButtonWidget(
                                             onPressed: () async {
                                               if (FFAppState()
@@ -638,8 +649,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                         .valorpreferecias,
                                                     'user_id': currentUserUid,
                                                     'numero_pedido':
-                                                        buttonNumbersPedRowList
-                                                            .last.id,
+                                                        buttonNumbersPedRow?.id,
                                                   });
                                                   showAlignedDialog(
                                                     barrierDismissible: false,
@@ -669,9 +679,6 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                   ).then((value) =>
                                                       setState(() {}));
                                                 }
-                                                await Future.delayed(
-                                                    const Duration(
-                                                        milliseconds: 10000));
                                               } else {
                                                 return;
                                               }

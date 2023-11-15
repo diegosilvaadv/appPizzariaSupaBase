@@ -793,6 +793,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                   });
                                                 }(),
                                               );
+                                              await Future.delayed(
+                                                  const Duration(
+                                                      milliseconds: 3000));
                                               await showAlignedDialog(
                                                 context: context,
                                                 isGlobal: true,
