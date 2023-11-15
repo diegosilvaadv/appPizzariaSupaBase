@@ -82,6 +82,8 @@ class _Action2SheetSimpleWidgetState extends State<Action2SheetSimpleWidget> {
                       widget.deletar?.id,
                     ),
                   );
+
+                  context.pushNamed('homepage');
                 },
                 text: 'Cancelar Pedido',
                 options: FFButtonOptions(

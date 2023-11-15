@@ -197,6 +197,10 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                       'user_id',
                                       currentUserUid,
                                     )
+                                    .neq(
+                                      'preco_total',
+                                      0.0,
+                                    )
                                     .order('created_at'),
                               ),
                               builder: (context, snapshot) {
@@ -296,8 +300,12 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                                     16.0,
                                                                     0.0),
                                                         child: Text(
-                                                          listViewNumbersPedRow
-                                                              .status!,
+                                                          valueOrDefault<
+                                                              String>(
+                                                            listViewNumbersPedRow
+                                                                .status,
+                                                            'S/status',
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -630,15 +638,19 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                             ],
                                                           ),
                                                           Text(
-                                                            formatNumber(
-                                                              listViewNumbersPedRow
-                                                                  .precoTotal!,
-                                                              formatType:
-                                                                  FormatType
-                                                                      .custom,
-                                                              currency: 'R\$',
-                                                              format: '0.00',
-                                                              locale: 'pt_BR',
+                                                            valueOrDefault<
+                                                                String>(
+                                                              formatNumber(
+                                                                listViewNumbersPedRow
+                                                                    .precoTotal,
+                                                                formatType:
+                                                                    FormatType
+                                                                        .custom,
+                                                                currency: 'R\$',
+                                                                format: '0.00',
+                                                                locale: 'pt_BR',
+                                                              ),
+                                                              '0',
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)

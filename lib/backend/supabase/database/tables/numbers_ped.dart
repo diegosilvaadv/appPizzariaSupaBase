@@ -28,7 +28,4 @@ class NumbersPedRow extends SupabaseDataRow {
 
   double? get precoTotal => getField<double>('preco_total');
   set precoTotal(double? value) => setField<double>('preco_total', value);
-
-  int? get nPedido => getField<int>('N_Pedido');
-  set nPedido(int? value) => setField<int>('N_Pedido', value);
 }

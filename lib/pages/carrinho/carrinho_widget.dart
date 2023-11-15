@@ -169,7 +169,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
                       color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 24.0,
+                      fontSize: 25.0,
                     ),
               ),
             ),
@@ -778,126 +778,56 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                               snapshot.data!;
                                           return FFButtonWidget(
                                             onPressed: () async {
-                                              if (FFAppState()
-                                                      .ProdutosDoCarrinho
-                                                      .length >=
-                                                  1) {
-                                                unawaited(
-                                                  () async {
-                                                    await NumbersPedTable()
-                                                        .insert({
-                                                      'created_at': supaSerialize<
-                                                              DateTime>(
-                                                          getCurrentTimestamp),
-                                                      'status': 'Não pago',
-                                                      'user_id': currentUserUid,
-                                                      'preco_total':
-                                                          FFAppState()
-                                                              .totalprice,
-                                                    });
-                                                  }(),
-                                                );
-                                                await Future.delayed(
-                                                    const Duration(
-                                                        milliseconds: 5000));
-                                                setState(() {
-                                                  FFAppState().contador = -1;
-                                                });
-                                                while (FFAppState().contador <=
-                                                    FFAppState()
-                                                        .ProdutosDoCarrinho
-                                                        .length) {
-                                                  setState(() {
-                                                    FFAppState().contador =
-                                                        FFAppState().contador +
-                                                            1;
-                                                  });
-                                                  await PedidosCarrinhoTable()
+                                              unawaited(
+                                                () async {
+                                                  await NumbersPedTable()
                                                       .insert({
                                                     'created_at': supaSerialize<
                                                             DateTime>(
                                                         getCurrentTimestamp),
-                                                    'nome_produto': FFAppState()
-                                                        .ProdutosDoCarrinho[
-                                                            FFAppState()
-                                                                .contador]
-                                                        .nomeProduto,
-                                                    'preco_produto':
-                                                        FFAppState()
-                                                            .ProdutosDoCarrinho[
-                                                                FFAppState()
-                                                                    .contador]
-                                                            .subTotal,
-                                                    'img': FFAppState()
-                                                        .ProdutosDoCarrinho[
-                                                            FFAppState()
-                                                                .contador]
-                                                        .img,
-                                                    'status': 'Não Paga',
-                                                    'quanty': FFAppState()
-                                                        .ProdutosDoCarrinho[
-                                                            FFAppState()
-                                                                .contador]
-                                                        .quantity,
-                                                    'nome_massa': FFAppState()
-                                                        .ProdutosDoCarrinho[
-                                                            FFAppState()
-                                                                .contador]
-                                                        .massaNome,
-                                                    'preco_massa': FFAppState()
-                                                        .ProdutosDoCarrinho[
-                                                            FFAppState()
-                                                                .contador]
-                                                        .valorpreferecias,
+                                                    'status': 'Não pago',
                                                     'user_id': currentUserUid,
-                                                    'numero_pedido':
-                                                        buttonNumbersPedRowList
-                                                            .last.id,
+                                                    'preco_total':
+                                                        FFAppState().totalprice,
                                                   });
-                                                  showAlignedDialog(
-                                                    barrierDismissible: false,
-                                                    context: context,
-                                                    isGlobal: false,
-                                                    avoidOverflow: true,
-                                                    targetAnchor:
-                                                        AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    followerAnchor:
-                                                        AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    builder: (dialogContext) {
-                                                      return Material(
-                                                        color:
-                                                            Colors.transparent,
-                                                        child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child:
-                                                              PagamentoWidget(),
-                                                        ),
-                                                      );
-                                                    },
-                                                  ).then((value) =>
-                                                      setState(() {}));
-                                                }
-                                              } else {
-                                                return;
-                                              }
+                                                }(),
+                                              );
+                                              await showAlignedDialog(
+                                                context: context,
+                                                isGlobal: true,
+                                                avoidOverflow: false,
+                                                targetAnchor:
+                                                    AlignmentDirectional(
+                                                            0.0, 0.0)
+                                                        .resolve(
+                                                            Directionality.of(
+                                                                context)),
+                                                followerAnchor:
+                                                    AlignmentDirectional(
+                                                            0.0, 0.0)
+                                                        .resolve(
+                                                            Directionality.of(
+                                                                context)),
+                                                builder: (dialogContext) {
+                                                  return Material(
+                                                    color: Colors.transparent,
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: PagamentoWidget(),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then(
+                                                  (value) => setState(() {}));
                                             },
                                             text: 'Ir Para Pagamento',
                                             options: FFButtonOptions(

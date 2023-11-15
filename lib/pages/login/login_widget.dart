@@ -1016,6 +1016,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                               });
                                               await NumbersPedTable().insert({
                                                 'user_id': currentUserUid,
+                                                'preco_total': 0.0,
                                               });
 
                                               context.goNamedAuth(
