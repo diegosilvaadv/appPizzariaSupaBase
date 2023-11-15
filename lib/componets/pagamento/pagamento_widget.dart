@@ -1,6 +1,7 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/action2_sheet_simple_widget.dart';
+import '/components/pagcomsucesso_widget.dart';
 import '/flutter_flow/flutter_flow_credit_card_form.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -627,19 +628,26 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                       buttonNumbersPedRowList
                                                           .last.id,
                                                 });
-
-                                                context.goNamed(
-                                                  'pedidos_cliente',
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                    ),
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          PagcomsucessoWidget(
+                                                        pedidos:
+                                                            widget.pedidos!,
+                                                      ),
+                                                    );
                                                   },
-                                                );
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
                                               }
                                             } else {
                                               return;
