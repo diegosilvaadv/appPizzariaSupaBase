@@ -618,15 +618,15 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                                               0.0),
                                                                           child:
                                                                               Text(
-                                                                            valueOrDefault<String>(
+                                                                            'X ${valueOrDefault<String>(
                                                                               formatNumber(
                                                                                 columnPedidosCarrinhoRow.quanty,
                                                                                 formatType: FormatType.custom,
                                                                                 format: '',
                                                                                 locale: '',
                                                                               ),
-                                                                              '/',
-                                                                            ),
+                                                                              '0',
+                                                                            )}',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Readex Pro',
                                                                                   color: FlutterFlowTheme.of(context).secondaryText,
