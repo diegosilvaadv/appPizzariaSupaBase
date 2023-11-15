@@ -475,78 +475,178 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                       final columnPedidosCarrinhoRow =
                                                           columnPedidosCarrinhoRowList[
                                                               columnIndex];
-                                                      return Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Expanded(
-                                                            child: Text(
-                                                              columnPedidosCarrinhoRow
-                                                                  .nomeProduto!,
-                                                              style: FlutterFlowTheme
+                                                      return Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    6.0),
+                                                        child: Material(
+                                                          color: Colors
+                                                              .transparent,
+                                                          elevation: 10.0,
+                                                          shape:
+                                                              RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          child: Container(
+                                                            width:
+                                                                double.infinity,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .headlineMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Outfit',
-                                                                    fontSize:
-                                                                        15.0,
+                                                                  .primaryBackground,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          6.0,
+                                                                          6.0,
+                                                                          6.0,
+                                                                          6.0),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      Expanded(
+                                                                        child:
+                                                                            Text(
+                                                                          columnPedidosCarrinhoRow
+                                                                              .nomeProduto!,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .headlineMedium
+                                                                              .override(
+                                                                                fontFamily: 'Outfit',
+                                                                                fontSize: 15.0,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Text(
+                                                                            formatNumber(
+                                                                              columnPedidosCarrinhoRow.precoProduto!,
+                                                                              formatType: FormatType.custom,
+                                                                              currency: 'R\$',
+                                                                              format: '0.00',
+                                                                              locale: 'pt_BR',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                  fontFamily: 'Outfit',
+                                                                                  fontSize: 20.0,
+                                                                                ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              'X ${columnPedidosCarrinhoRow.quanty?.toString()}',
+                                                                              style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                    fontFamily: 'Outfit',
+                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                    fontSize: 15.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ],
                                                                   ),
+                                                                  if (columnPedidosCarrinhoRow
+                                                                          .precoMassa !=
+                                                                      0.0)
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          4.0),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Text(
+                                                                            columnPedidosCarrinhoRow.nomeMassa!,
+                                                                            style:
+                                                                                FlutterFlowTheme.of(context).bodyMedium,
+                                                                          ),
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Text(
+                                                                                valueOrDefault<String>(
+                                                                                  formatNumber(
+                                                                                    columnPedidosCarrinhoRow.precoProduto,
+                                                                                    formatType: FormatType.custom,
+                                                                                    currency: 'R\$',
+                                                                                    format: '0.00',
+                                                                                    locale: 'pt_BR',
+                                                                                  ),
+                                                                                  '0',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                      fontFamily: 'Outfit',
+                                                                                      fontSize: 20.0,
+                                                                                    ),
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                child: Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    formatNumber(
+                                                                                      columnPedidosCarrinhoRow.quanty,
+                                                                                      formatType: FormatType.custom,
+                                                                                      format: '',
+                                                                                      locale: '',
+                                                                                    ),
+                                                                                    '/',
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Readex Pro',
+                                                                                        color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                ],
+                                                              ),
                                                             ),
                                                           ),
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .end,
-                                                            children: [
-                                                              Text(
-                                                                formatNumber(
-                                                                  columnPedidosCarrinhoRow
-                                                                      .precoProduto!,
-                                                                  formatType:
-                                                                      FormatType
-                                                                          .custom,
-                                                                  currency:
-                                                                      'R\$',
-                                                                  format:
-                                                                      '0.00',
-                                                                  locale:
-                                                                      'pt_BR',
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
-                                                                      fontSize:
-                                                                          20.0,
-                                                                    ),
-                                                              ),
-                                                              Text(
-                                                                'X ${columnPedidosCarrinhoRow.quanty?.toString()}',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                      fontSize:
-                                                                          15.0,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
+                                                        ),
                                                       );
                                                     }),
                                                   );
@@ -561,6 +661,36 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        'Taxa de Entrega',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                      Text(
+                                                        'R\$10,00',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                ),
+                                                      ),
+                                                    ],
+                                                  ),
                                                   Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -584,6 +714,9 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
