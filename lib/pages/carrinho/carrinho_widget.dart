@@ -169,7 +169,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
                       color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 25.0,
+                      fontSize: 24.0,
                     ),
               ),
             ),
@@ -821,7 +821,11 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                           : FocusScope.of(
                                                                   context)
                                                               .unfocus(),
-                                                      child: PagamentoWidget(),
+                                                      child: PagamentoWidget(
+                                                        pedidos:
+                                                            buttonNumbersPedRowList
+                                                                .last,
+                                                      ),
                                                     ),
                                                   );
                                                 },

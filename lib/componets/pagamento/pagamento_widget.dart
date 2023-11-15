@@ -17,7 +17,12 @@ import 'pagamento_model.dart';
 export 'pagamento_model.dart';
 
 class PagamentoWidget extends StatefulWidget {
-  const PagamentoWidget({Key? key}) : super(key: key);
+  const PagamentoWidget({
+    Key? key,
+    required this.pedidos,
+  }) : super(key: key);
+
+  final NumbersPedRow? pedidos;
 
   @override
   _PagamentoWidgetState createState() => _PagamentoWidgetState();
@@ -112,7 +117,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                               .headlineSmall
                                               .override(
                                                 fontFamily: 'Outfit',
-                                                fontSize: 26.0,
+                                                fontSize: 30.0,
                                               ),
                                         ),
                                         Padding(
@@ -573,7 +578,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                     )
                                                     .eq(
                                                       'id',
-                                                      _model.teste.last.id,
+                                                      widget.pedidos?.id,
                                                     ),
                                               );
                                               setState(() {
