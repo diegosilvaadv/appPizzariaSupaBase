@@ -118,7 +118,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                               .headlineSmall
                                               .override(
                                                 fontFamily: 'Outfit',
-                                                fontSize: 30.0,
+                                                fontSize: 31.0,
                                               ),
                                         ),
                                         Padding(

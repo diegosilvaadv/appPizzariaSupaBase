@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -79,12 +80,12 @@ class _Action2SheetSimpleWidgetState extends State<Action2SheetSimpleWidget> {
                   await NumbersPedTable().delete(
                     matchingRows: (rows) => rows
                         .eq(
-                          'id',
-                          widget.deletar?.id,
+                          'status',
+                          'Não pago',
                         )
                         .eq(
-                          'status',
-                          'Não Pago',
+                          'user_id',
+                          currentUserUid,
                         ),
                   );
 
