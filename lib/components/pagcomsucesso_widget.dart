@@ -1,4 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -14,10 +13,10 @@ export 'pagcomsucesso_model.dart';
 class PagcomsucessoWidget extends StatefulWidget {
   const PagcomsucessoWidget({
     Key? key,
-    required this.pedidos,
+    required this.ok,
   }) : super(key: key);
 
-  final NumbersPedRow? pedidos;
+  final List<NumbersPedRow>? ok;
 
   @override
   _PagcomsucessoWidgetState createState() => _PagcomsucessoWidgetState();
@@ -103,20 +102,6 @@ class _PagcomsucessoWidgetState extends State<PagcomsucessoWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await NumbersPedTable().update(
-                        data: {
-                          'status': 'Preparando',
-                        },
-                        matchingRows: (rows) => rows
-                            .eq(
-                              'user_id',
-                              currentUserUid,
-                            )
-                            .eq(
-                              'id',
-                              widget.pedidos?.id,
-                            ),
-                      );
                       setState(() {
                         FFAppState().ProdutosDoCarrinho = [];
                         FFAppState().totalprice = 0;

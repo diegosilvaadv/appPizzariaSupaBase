@@ -640,8 +640,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                               context),
                                                       child:
                                                           PagcomsucessoWidget(
-                                                        pedidos: widget
-                                                            .pedidos!.last,
+                                                        ok: buttonNumbersPedRowList,
                                                       ),
                                                     );
                                                   },
