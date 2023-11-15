@@ -77,10 +77,15 @@ class _Action2SheetSimpleWidgetState extends State<Action2SheetSimpleWidget> {
               child: FFButtonWidget(
                 onPressed: () async {
                   await NumbersPedTable().delete(
-                    matchingRows: (rows) => rows.eq(
-                      'id',
-                      widget.deletar?.id,
-                    ),
+                    matchingRows: (rows) => rows
+                        .eq(
+                          'id',
+                          widget.deletar?.id,
+                        )
+                        .eq(
+                          'status',
+                          'Não Pago',
+                        ),
                   );
 
                   context.pushNamed('homepage');

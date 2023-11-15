@@ -569,8 +569,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                 1) {
                                               await NumbersPedTable().update(
                                                 data: {
-                                                  'preco_total':
-                                                      FFAppState().totalprice,
+                                                  'status': 'Preparando',
                                                 },
                                                 matchingRows: (rows) => rows
                                                     .eq(
@@ -578,8 +577,8 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                       currentUserUid,
                                                     )
                                                     .eq(
-                                                      'id',
-                                                      widget.pedidos?.last?.id,
+                                                      'status',
+                                                      'Não Pago',
                                                     ),
                                               );
                                               setState(() {
