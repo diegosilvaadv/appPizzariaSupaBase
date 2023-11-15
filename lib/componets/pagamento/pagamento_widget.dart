@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -530,150 +531,171 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                       ],
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 12.0, 0.0, 0.0),
-                                    child: FutureBuilder<List<NumbersPedRow>>(
-                                      future: NumbersPedTable().queryRows(
-                                        queryFn: (q) => q.eq(
-                                          'user_id',
-                                          currentUserUid,
+                                  Builder(
+                                    builder: (context) => Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 12.0, 0.0, 0.0),
+                                      child: FutureBuilder<List<NumbersPedRow>>(
+                                        future: NumbersPedTable().queryRows(
+                                          queryFn: (q) => q.eq(
+                                            'user_id',
+                                            currentUserUid,
+                                          ),
                                         ),
-                                      ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
+                                        builder: (context, snapshot) {
+                                          // Customize what your widget looks like when it's loading.
+                                          if (!snapshot.hasData) {
+                                            return Center(
+                                              child: SizedBox(
+                                                width: 50.0,
+                                                height: 50.0,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                          List<NumbersPedRow>
+                                              buttonNumbersPedRowList =
+                                              snapshot.data!;
+                                          return FFButtonWidget(
+                                            onPressed: () async {
+                                              if (FFAppState()
+                                                      .ProdutosDoCarrinho
+                                                      .length >=
+                                                  1) {
+                                                await NumbersPedTable().update(
+                                                  data: {
+                                                    'status': 'Preparando',
+                                                  },
+                                                  matchingRows: (rows) => rows
+                                                      .eq(
+                                                        'user_id',
+                                                        currentUserUid,
+                                                      )
+                                                      .eq(
+                                                        'status',
+                                                        'Não Pago',
+                                                      ),
+                                                );
+                                                await Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 3000));
+                                                setState(() {
+                                                  FFAppState().contador = -1;
+                                                });
+                                                while (FFAppState().contador <=
+                                                    FFAppState()
+                                                        .ProdutosDoCarrinho
+                                                        .length) {
+                                                  setState(() {
+                                                    FFAppState().contador =
+                                                        FFAppState().contador +
+                                                            1;
+                                                  });
+                                                  await PedidosCarrinhoTable()
+                                                      .insert({
+                                                    'created_at': supaSerialize<
+                                                            DateTime>(
+                                                        getCurrentTimestamp),
+                                                    'nome_produto': FFAppState()
+                                                        .ProdutosDoCarrinho[
+                                                            FFAppState()
+                                                                .contador]
+                                                        .nomeProduto,
+                                                    'preco_produto':
+                                                        FFAppState()
+                                                            .ProdutosDoCarrinho[
+                                                                FFAppState()
+                                                                    .contador]
+                                                            .subTotal,
+                                                    'img': FFAppState()
+                                                        .ProdutosDoCarrinho[
+                                                            FFAppState()
+                                                                .contador]
+                                                        .img,
+                                                    'status': 'Pago',
+                                                    'quanty': FFAppState()
+                                                        .ProdutosDoCarrinho[
+                                                            FFAppState()
+                                                                .contador]
+                                                        .quantity,
+                                                    'nome_massa': FFAppState()
+                                                        .ProdutosDoCarrinho[
+                                                            FFAppState()
+                                                                .contador]
+                                                        .massaNome,
+                                                    'preco_massa': FFAppState()
+                                                        .ProdutosDoCarrinho[
+                                                            FFAppState()
+                                                                .contador]
+                                                        .valorpreferecias,
+                                                    'user_id': currentUserUid,
+                                                    'numero_pedido':
+                                                        buttonNumbersPedRowList
+                                                            .last.id,
+                                                  });
+                                                  showAlignedDialog(
+                                                    barrierDismissible: false,
+                                                    context: context,
+                                                    isGlobal: false,
+                                                    avoidOverflow: true,
+                                                    targetAnchor:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    followerAnchor:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    builder: (dialogContext) {
+                                                      return Material(
+                                                        color:
+                                                            Colors.transparent,
+                                                        child:
+                                                            PagcomsucessoWidget(),
+                                                      );
+                                                    },
+                                                  ).then((value) =>
+                                                      setState(() {}));
+                                                }
+                                              } else {
+                                                return;
+                                              }
+                                            },
+                                            text: 'Realizar Pagamento',
+                                            options: FFButtonOptions(
+                                              width: 270.0,
                                               height: 50.0,
-                                              child: CircularProgressIndicator(
-                                                valueColor:
-                                                    AlwaysStoppedAnimation<
-                                                        Color>(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                                ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall,
+                                              elevation: 2.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
                                               ),
                                             ),
                                           );
-                                        }
-                                        List<NumbersPedRow>
-                                            buttonNumbersPedRowList =
-                                            snapshot.data!;
-                                        return FFButtonWidget(
-                                          onPressed: () async {
-                                            if (FFAppState()
-                                                    .ProdutosDoCarrinho
-                                                    .length >=
-                                                1) {
-                                              await NumbersPedTable().update(
-                                                data: {
-                                                  'status': 'Preparando',
-                                                },
-                                                matchingRows: (rows) => rows
-                                                    .eq(
-                                                      'user_id',
-                                                      currentUserUid,
-                                                    )
-                                                    .eq(
-                                                      'status',
-                                                      'Não Pago',
-                                                    ),
-                                              );
-                                              setState(() {
-                                                FFAppState().contador = -1;
-                                              });
-                                              while (FFAppState().contador <=
-                                                  FFAppState()
-                                                      .ProdutosDoCarrinho
-                                                      .length) {
-                                                setState(() {
-                                                  FFAppState().contador =
-                                                      FFAppState().contador + 1;
-                                                });
-                                                await PedidosCarrinhoTable()
-                                                    .insert({
-                                                  'created_at':
-                                                      supaSerialize<DateTime>(
-                                                          getCurrentTimestamp),
-                                                  'nome_produto': FFAppState()
-                                                      .ProdutosDoCarrinho[
-                                                          FFAppState().contador]
-                                                      .nomeProduto,
-                                                  'preco_produto': FFAppState()
-                                                      .ProdutosDoCarrinho[
-                                                          FFAppState().contador]
-                                                      .subTotal,
-                                                  'img': FFAppState()
-                                                      .ProdutosDoCarrinho[
-                                                          FFAppState().contador]
-                                                      .img,
-                                                  'status': 'Pago',
-                                                  'quanty': FFAppState()
-                                                      .ProdutosDoCarrinho[
-                                                          FFAppState().contador]
-                                                      .quantity,
-                                                  'nome_massa': FFAppState()
-                                                      .ProdutosDoCarrinho[
-                                                          FFAppState().contador]
-                                                      .massaNome,
-                                                  'preco_massa': FFAppState()
-                                                      .ProdutosDoCarrinho[
-                                                          FFAppState().contador]
-                                                      .valorpreferecias,
-                                                  'user_id': currentUserUid,
-                                                  'numero_pedido':
-                                                      buttonNumbersPedRowList
-                                                          .last.id,
-                                                });
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  enableDrag: false,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          PagcomsucessoWidget(
-                                                        ok: buttonNumbersPedRowList,
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
-                                              }
-                                            } else {
-                                              return;
-                                            }
-                                          },
-                                          text: 'Realizar Pagamento',
-                                          options: FFButtonOptions(
-                                            width: 270.0,
-                                            height: 50.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall,
-                                            elevation: 2.0,
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
-                                            ),
-                                          ),
-                                        );
-                                      },
+                                        },
+                                      ),
                                     ),
                                   ),
                                   if (responsiveVisibility(

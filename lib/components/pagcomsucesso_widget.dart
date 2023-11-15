@@ -1,5 +1,4 @@
 import '/backend/schema/structs/index.dart';
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -11,12 +10,7 @@ import 'pagcomsucesso_model.dart';
 export 'pagcomsucesso_model.dart';
 
 class PagcomsucessoWidget extends StatefulWidget {
-  const PagcomsucessoWidget({
-    Key? key,
-    required this.ok,
-  }) : super(key: key);
-
-  final List<NumbersPedRow>? ok;
+  const PagcomsucessoWidget({Key? key}) : super(key: key);
 
   @override
   _PagcomsucessoWidgetState createState() => _PagcomsucessoWidgetState();
