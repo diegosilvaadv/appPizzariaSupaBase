@@ -561,6 +561,21 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                     .ProdutosDoCarrinho
                                                     .length >=
                                                 1) {
+                                              await NumbersPedTable().update(
+                                                data: {
+                                                  'preco_total':
+                                                      FFAppState().totalprice,
+                                                },
+                                                matchingRows: (rows) => rows
+                                                    .eq(
+                                                      'user_id',
+                                                      currentUserUid,
+                                                    )
+                                                    .eq(
+                                                      'id',
+                                                      _model.teste.last.id,
+                                                    ),
+                                              );
                                               setState(() {
                                                 FFAppState().contador = -1;
                                               });

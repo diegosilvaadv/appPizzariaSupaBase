@@ -16,6 +16,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class PagamentoModel extends FlutterFlowModel<PagamentoWidget> {
+  ///  Local state fields for this component.
+
+  List<NumbersPedRow> teste = [];
+  void addToTeste(NumbersPedRow item) => teste.add(item);
+  void removeFromTeste(NumbersPedRow item) => teste.remove(item);
+  void removeAtIndexFromTeste(int index) => teste.removeAt(index);
+  void insertAtIndexInTeste(int index, NumbersPedRow item) =>
+      teste.insert(index, item);
+  void updateTesteAtIndex(int index, Function(NumbersPedRow) updateFn) =>
+      teste[index] = updateFn(teste[index]);
+
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for CreditCardForm widget.
