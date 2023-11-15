@@ -794,17 +794,12 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                       'preco_total':
                                                           FFAppState()
                                                               .totalprice,
-                                                      'N_Pedido':
-                                                          buttonNumbersPedRowList
-                                                                  .last
-                                                                  .nPedido! +
-                                                              1,
                                                     });
                                                   }(),
                                                 );
                                                 await Future.delayed(
                                                     const Duration(
-                                                        milliseconds: 1000));
+                                                        milliseconds: 2000));
                                                 setState(() {
                                                   FFAppState().contador = -1;
                                                 });
@@ -857,8 +852,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                     'user_id': currentUserUid,
                                                     'numero_pedido':
                                                         buttonNumbersPedRowList
-                                                                .last.nPedido! +
-                                                            1,
+                                                            .last.id,
                                                   });
                                                   showAlignedDialog(
                                                     barrierDismissible: false,

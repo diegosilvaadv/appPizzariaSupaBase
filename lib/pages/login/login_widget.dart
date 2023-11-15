@@ -1014,6 +1014,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         getCurrentTimestamp),
                                                 'user_id': currentUserUid,
                                               });
+                                              await NumbersPedTable().insert({
+                                                'user_id': currentUserUid,
+                                              });
 
                                               context.goNamedAuth(
                                                   'homepage', context.mounted);
