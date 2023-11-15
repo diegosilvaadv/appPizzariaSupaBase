@@ -7,11 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'action2_sheet_simple_model.dart';
-export 'action2_sheet_simple_model.dart';
+import 'cancelar_model.dart';
+export 'cancelar_model.dart';
 
-class Action2SheetSimpleWidget extends StatefulWidget {
-  const Action2SheetSimpleWidget({
+class CancelarWidget extends StatefulWidget {
+  const CancelarWidget({
     Key? key,
     required this.deletar,
   }) : super(key: key);
@@ -19,12 +19,11 @@ class Action2SheetSimpleWidget extends StatefulWidget {
   final NumbersPedRow? deletar;
 
   @override
-  _Action2SheetSimpleWidgetState createState() =>
-      _Action2SheetSimpleWidgetState();
+  _CancelarWidgetState createState() => _CancelarWidgetState();
 }
 
-class _Action2SheetSimpleWidgetState extends State<Action2SheetSimpleWidget> {
-  late Action2SheetSimpleModel _model;
+class _CancelarWidgetState extends State<CancelarWidget> {
+  late CancelarModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -35,7 +34,7 @@ class _Action2SheetSimpleWidgetState extends State<Action2SheetSimpleWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Action2SheetSimpleModel());
+    _model = createModel(context, () => CancelarModel());
   }
 
   @override
@@ -80,6 +79,7 @@ class _Action2SheetSimpleWidgetState extends State<Action2SheetSimpleWidget> {
                   await NumbersPedTable().update(
                     data: {
                       'status': 'Cancelado',
+                      'preco_total': 0.0,
                     },
                     matchingRows: (rows) => rows
                         .eq(

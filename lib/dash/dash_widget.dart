@@ -564,7 +564,10 @@ class _DashWidgetState extends State<DashWidget> with TickerProviderStateMixin {
 
     return FutureBuilder<List<NumbersPedRow>>(
       future: NumbersPedTable().queryRows(
-        queryFn: (q) => q,
+        queryFn: (q) => q.eq(
+          'created_at',
+          supaSerialize<DateTime>(getCurrentTimestamp),
+        ),
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -600,6 +603,7 @@ class _DashWidgetState extends State<DashWidget> with TickerProviderStateMixin {
                 style: FlutterFlowTheme.of(context).displaySmall.override(
                       fontFamily: 'Outfit',
                       color: Colors.white,
+                      fontSize: 35.0,
                     ),
               ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation13']!),
               actions: [],
@@ -722,7 +726,7 @@ class _DashWidgetState extends State<DashWidget> with TickerProviderStateMixin {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  'New Customers',
+                                                  'Valor total de vendas',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelMedium,
@@ -932,7 +936,7 @@ class _DashWidgetState extends State<DashWidget> with TickerProviderStateMixin {
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       children: [
                                         CircularPercentIndicator(
-                                          percent: 0.7,
+                                          percent: 0.8,
                                           radius: 70.0,
                                           lineWidth: 12.0,
                                           animation: true,

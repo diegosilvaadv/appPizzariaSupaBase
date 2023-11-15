@@ -1,6 +1,6 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
-import '/components/action2_sheet_simple_widget.dart';
+import '/components/cancelar_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -411,7 +411,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                                       .viewInsetsOf(
                                                                           context),
                                                                   child:
-                                                                      Action2SheetSimpleWidget(
+                                                                      CancelarWidget(
                                                                     deletar:
                                                                         listViewNumbersPedRow,
                                                                   ),

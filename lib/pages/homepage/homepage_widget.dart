@@ -192,6 +192,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
       await NumbersPedTable().update(
         data: {
           'status': 'Cancelado',
+          'preco_total': 0.0,
         },
         matchingRows: (rows) => rows
             .eq(
