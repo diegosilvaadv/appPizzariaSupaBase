@@ -785,7 +785,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                     'created_at': supaSerialize<
                                                             DateTime>(
                                                         getCurrentTimestamp),
-                                                    'status': 'Não pago',
+                                                    'status': 'Não Pago',
                                                     'user_id': currentUserUid,
                                                     'preco_total': FFAppState()
                                                             .totalprice +

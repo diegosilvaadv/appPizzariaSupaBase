@@ -192,6 +192,12 @@ class FFAppState extends ChangeNotifier {
   set precoSabor4(double _value) {
     _precoSabor4 = _value;
   }
+
+  String _status = '';
+  String get status => _status;
+  set status(String _value) {
+    _status = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

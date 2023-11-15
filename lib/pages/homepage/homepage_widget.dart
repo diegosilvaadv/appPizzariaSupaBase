@@ -189,6 +189,20 @@ class _HomepageWidgetState extends State<HomepageWidget>
         FFAppState().precoSabor3 = 0;
         FFAppState().precoSabor4 = 0;
       });
+      await NumbersPedTable().update(
+        data: {
+          'status': 'Cancelado',
+        },
+        matchingRows: (rows) => rows
+            .eq(
+              'user_id',
+              currentUserUid,
+            )
+            .eq(
+              'status',
+              'Não Pago',
+            ),
+      );
     });
 
     _model.pizzasalgadaController1 =
