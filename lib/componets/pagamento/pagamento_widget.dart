@@ -23,7 +23,7 @@ class PagamentoWidget extends StatefulWidget {
     required this.pedidos,
   }) : super(key: key);
 
-  final NumbersPedRow? pedidos;
+  final List<NumbersPedRow>? pedidos;
 
   @override
   _PagamentoWidgetState createState() => _PagamentoWidgetState();
@@ -579,7 +579,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                     )
                                                     .eq(
                                                       'id',
-                                                      widget.pedidos?.id,
+                                                      widget.pedidos?.last?.id,
                                                     ),
                                               );
                                               setState(() {
@@ -641,8 +641,8 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                               context),
                                                       child:
                                                           PagcomsucessoWidget(
-                                                        pedidos:
-                                                            widget.pedidos!,
+                                                        pedidos: widget
+                                                            .pedidos!.last,
                                                       ),
                                                     );
                                                   },

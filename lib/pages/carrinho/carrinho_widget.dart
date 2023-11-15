@@ -823,8 +823,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                               .unfocus(),
                                                       child: PagamentoWidget(
                                                         pedidos:
-                                                            buttonNumbersPedRowList
-                                                                .last,
+                                                            buttonNumbersPedRowList,
                                                       ),
                                                     ),
                                                   );
