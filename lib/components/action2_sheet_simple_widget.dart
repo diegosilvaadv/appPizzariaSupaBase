@@ -99,7 +99,10 @@ class _Action2SheetSimpleWidgetState extends State<Action2SheetSimpleWidget> {
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primaryBackground,
-                  textStyle: FlutterFlowTheme.of(context).bodyLarge,
+                  textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 20.0,
+                      ),
                   elevation: 2.0,
                   borderSide: BorderSide(
                     color: Colors.transparent,

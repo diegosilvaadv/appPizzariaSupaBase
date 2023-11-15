@@ -49,103 +49,109 @@ class _PagcomsucessoWidgetState extends State<PagcomsucessoWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Expanded(
-              child: Text(
-                'Pagamento Realizado\n com Sucesso',
-                textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).titleMedium.override(
-                      fontFamily: 'Readex Pro',
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      fontSize: 30.0,
-                    ),
-              ),
-            ),
-          ],
-        ),
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-          child: Row(
+    return Container(
+      decoration: BoxDecoration(
+        color: FlutterFlowTheme.of(context).secondaryBackground,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  setState(() {
-                    FFAppState().ProdutosDoCarrinho = [];
-                    FFAppState().totalprice = 0;
-                    FFAppState().numberCarrinho = 0;
-                  });
-
-                  context.goNamed('homepage');
-                },
-                child: Icon(
-                  Icons.home,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  size: 24.0,
+              Expanded(
+                child: Text(
+                  'Pagamento Realizado\n com Sucesso',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).titleMedium.override(
+                        fontFamily: 'Readex Pro',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontSize: 30.0,
+                      ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    await NumbersPedTable().update(
-                      data: {
-                        'status': 'Preparando',
-                      },
-                      matchingRows: (rows) => rows
-                          .eq(
-                            'user_id',
-                            currentUserUid,
-                          )
-                          .eq(
-                            'id',
-                            widget.pedidos?.id,
-                          ),
-                    );
+            ],
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
                     setState(() {
                       FFAppState().ProdutosDoCarrinho = [];
                       FFAppState().totalprice = 0;
                       FFAppState().numberCarrinho = 0;
                     });
 
-                    context.goNamed('pedidos_cliente');
+                    context.goNamed('homepage');
                   },
-                  text: 'Acessar Meu Pedido',
-                  options: FFButtonOptions(
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Readex Pro',
-                          color: Colors.white,
-                        ),
-                    elevation: 3.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
+                  child: Icon(
+                    Icons.home,
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    size: 24.0,
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      await NumbersPedTable().update(
+                        data: {
+                          'status': 'Preparando',
+                        },
+                        matchingRows: (rows) => rows
+                            .eq(
+                              'user_id',
+                              currentUserUid,
+                            )
+                            .eq(
+                              'id',
+                              widget.pedidos?.id,
+                            ),
+                      );
+                      setState(() {
+                        FFAppState().ProdutosDoCarrinho = [];
+                        FFAppState().totalprice = 0;
+                        FFAppState().numberCarrinho = 0;
+                      });
+
+                      context.goNamed('pedidos_cliente');
+                    },
+                    text: 'Acessar Meu Pedido',
+                    options: FFButtonOptions(
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Readex Pro',
+                                color: Colors.white,
+                              ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
