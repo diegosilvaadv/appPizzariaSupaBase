@@ -565,8 +565,8 @@ class _DashWidgetState extends State<DashWidget> with TickerProviderStateMixin {
     return FutureBuilder<List<NumbersPedRow>>(
       future: NumbersPedTable().queryRows(
         queryFn: (q) => q.eq(
-          'created_at',
-          supaSerialize<DateTime>(getCurrentTimestamp),
+          'status',
+          'entregue',
         ),
       ),
       builder: (context, snapshot) {
@@ -603,7 +603,7 @@ class _DashWidgetState extends State<DashWidget> with TickerProviderStateMixin {
                 style: FlutterFlowTheme.of(context).displaySmall.override(
                       fontFamily: 'Outfit',
                       color: Colors.white,
-                      fontSize: 35.0,
+                      fontSize: 36.0,
                     ),
               ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation13']!),
               actions: [],
