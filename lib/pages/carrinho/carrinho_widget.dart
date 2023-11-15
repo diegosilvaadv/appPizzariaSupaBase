@@ -787,8 +787,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                         getCurrentTimestamp),
                                                     'status': 'Não pago',
                                                     'user_id': currentUserUid,
-                                                    'preco_total':
-                                                        FFAppState().totalprice,
+                                                    'preco_total': 0.0,
                                                   });
                                                 }(),
                                               );
