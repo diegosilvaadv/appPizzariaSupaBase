@@ -119,7 +119,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                               .headlineSmall
                                               .override(
                                                 fontFamily: 'Outfit',
-                                                fontSize: 31.0,
+                                                fontSize: 30.0,
                                               ),
                                         ),
                                         Padding(
@@ -669,6 +669,9 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                                   ).then((value) =>
                                                       setState(() {}));
                                                 }
+                                                await Future.delayed(
+                                                    const Duration(
+                                                        milliseconds: 10000));
                                               } else {
                                                 return;
                                               }
