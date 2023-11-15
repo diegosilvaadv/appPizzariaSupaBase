@@ -201,6 +201,10 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                       'preco_total',
                                       0.0,
                                     )
+                                    .eq(
+                                      'status',
+                                      'Preparando',
+                                    )
                                     .order('created_at'),
                               ),
                               builder: (context, snapshot) {

@@ -77,7 +77,10 @@ class _Action2SheetSimpleWidgetState extends State<Action2SheetSimpleWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  await NumbersPedTable().delete(
+                  await NumbersPedTable().update(
+                    data: {
+                      'status': 'Cancelado',
+                    },
                     matchingRows: (rows) => rows
                         .eq(
                           'status',
