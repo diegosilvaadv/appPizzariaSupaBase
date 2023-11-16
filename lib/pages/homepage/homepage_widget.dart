@@ -589,7 +589,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                           style:
                               FlutterFlowTheme.of(context).titleLarge.override(
                                     fontFamily: 'Outfit',
-                                    fontSize: 26.0,
+                                    fontSize: 25.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                           colors: [
