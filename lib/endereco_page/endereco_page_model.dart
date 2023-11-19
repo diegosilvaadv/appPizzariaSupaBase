@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'endereco_page_widget.dart' show EnderecoPageWidget;
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,9 @@ class EnderecoPageModel extends FlutterFlowModel<EnderecoPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController;
+
   // State field(s) for buscarCep widget.
   FocusNode? buscarCepFocusNode;
   TextEditingController? buscarCepController;
@@ -49,6 +53,7 @@ class EnderecoPageModel extends FlutterFlowModel<EnderecoPageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    expandableController.dispose();
     buscarCepFocusNode?.dispose();
     buscarCepController?.dispose();
 
