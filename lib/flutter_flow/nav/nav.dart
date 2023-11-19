@@ -151,6 +151,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/dash',
           builder: (context, params) =>
               params.isEmpty ? NavBarPage(initialPage: 'dash') : DashWidget(),
+        ),
+        FFRoute(
+          name: 'enderecoPage',
+          path: '/enderecoPage',
+          builder: (context, params) => EnderecoPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

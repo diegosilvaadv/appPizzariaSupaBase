@@ -15,3 +15,4 @@ export '/detalhes_pages/detalhes_produtos_2sab_g_g/detalhes_produtos2sab_g_g_wid
 export '/detalhes_pages/detalhes_produtos_bebidas/detalhes_produtos_bebidas_widget.dart'
     show DetalhesProdutosBebidasWidget;
 export '/dash/dash_widget.dart' show DashWidget;
+export '/endereco_page/endereco_page_widget.dart' show EnderecoPageWidget;
