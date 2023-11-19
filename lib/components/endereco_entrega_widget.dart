@@ -638,6 +638,7 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                                 'estado': _model.estadoController.text,
                                 'user_id': currentUserUid,
                               });
+                              Navigator.pop(context);
                             },
                             text: 'Adicionar Endereço',
                             options: FFButtonOptions(
