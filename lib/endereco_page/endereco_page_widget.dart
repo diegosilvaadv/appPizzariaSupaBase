@@ -160,14 +160,18 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              '${listViewUserEnderecosRow.endereco} - ${listViewUserEnderecosRow.bairro} - ${listViewUserEnderecosRow.cidade} | ${listViewUserEnderecosRow.cep}',
+                                              '${listViewUserEnderecosRow.endereco} - ${listViewUserEnderecosRow.bairro} - ${listViewUserEnderecosRow.cidade} | ${listViewUserEnderecosRow.cep}'
+                                                  .maybeHandleOverflow(
+                                                maxChars: 100,
+                                                replacement: '…',
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             'Readex Pro',
-                                                        fontSize: 16.0,
+                                                        fontSize: 14.0,
                                                       ),
                                             ),
                                           ),
