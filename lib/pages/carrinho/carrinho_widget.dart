@@ -872,68 +872,96 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                                   snapshot.data!;
                                               return FFButtonWidget(
                                                 onPressed: () async {
-                                                  unawaited(
-                                                    () async {
-                                                      await NumbersPedTable()
-                                                          .insert({
-                                                        'created_at': supaSerialize<
-                                                                DateTime>(
-                                                            getCurrentTimestamp),
-                                                        'status': 'Não Pago',
-                                                        'user_id':
-                                                            currentUserUid,
-                                                        'preco_total':
-                                                            FFAppState()
-                                                                    .totalprice +
-                                                                10,
-                                                      });
-                                                    }(),
-                                                  );
-                                                  await Future.delayed(
-                                                      const Duration(
-                                                          milliseconds: 2000));
-                                                  await showAlignedDialog(
-                                                    context: context,
-                                                    isGlobal: true,
-                                                    avoidOverflow: false,
-                                                    targetAnchor:
-                                                        AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    followerAnchor:
-                                                        AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    builder: (dialogContext) {
-                                                      return Material(
-                                                        color:
-                                                            Colors.transparent,
-                                                        child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
+                                                  if (carrinhoUserEnderecosRow
+                                                          ?.userId !=
+                                                      currentUserUid) {
+                                                    unawaited(
+                                                      () async {
+                                                        await NumbersPedTable()
+                                                            .insert({
+                                                          'created_at':
+                                                              supaSerialize<
+                                                                      DateTime>(
+                                                                  getCurrentTimestamp),
+                                                          'status': 'Não Pago',
+                                                          'user_id':
+                                                              currentUserUid,
+                                                          'preco_total':
+                                                              FFAppState()
+                                                                      .totalprice +
+                                                                  10,
+                                                        });
+                                                      }(),
+                                                    );
+                                                    await Future.delayed(
+                                                        const Duration(
+                                                            milliseconds:
+                                                                2000));
+                                                    await showAlignedDialog(
+                                                      context: context,
+                                                      isGlobal: true,
+                                                      avoidOverflow: false,
+                                                      targetAnchor:
+                                                          AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                      followerAnchor:
+                                                          AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                      builder: (dialogContext) {
+                                                        return Material(
+                                                          color: Colors
+                                                              .transparent,
                                                           child:
-                                                              PagamentoWidget(
-                                                            pedidos:
-                                                                buttonNumbersPedRowList,
+                                                              GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child:
+                                                                PagamentoWidget(
+                                                              pedidos:
+                                                                  buttonNumbersPedRowList,
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ).then((value) =>
+                                                        setState(() {}));
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Selecione um endereço de entrega.',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
                                                           ),
                                                         ),
-                                                      );
-                                                    },
-                                                  ).then((value) =>
-                                                      setState(() {}));
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                                    );
+                                                  }
                                                 },
                                                 text: 'Ir Para Pagamento',
                                                 options: FFButtonOptions(
