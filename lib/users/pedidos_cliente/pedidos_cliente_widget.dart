@@ -411,10 +411,7 @@ class _PedidosClienteWidgetState extends State<PedidosClienteWidget>
                                                                       .viewInsetsOf(
                                                                           context),
                                                                   child:
-                                                                      CancelarWidget(
-                                                                    deletar:
-                                                                        listViewNumbersPedRow,
-                                                                  ),
+                                                                      CancelarWidget(),
                                                                 ),
                                                               );
                                                             },

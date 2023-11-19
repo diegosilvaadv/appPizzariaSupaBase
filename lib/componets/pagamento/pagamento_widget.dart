@@ -138,70 +138,32 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 12.0, 0.0),
-                                    child: FutureBuilder<List<NumbersPedRow>>(
-                                      future: NumbersPedTable().queryRows(
-                                        queryFn: (q) => q.eq(
-                                          'user_id',
-                                          currentUserUid,
-                                        ),
+                                    child: FlutterFlowIconButton(
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      borderRadius: 30.0,
+                                      borderWidth: 2.0,
+                                      buttonSize: 44.0,
+                                      icon: Icon(
+                                        Icons.close_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 24.0,
                                       ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: CircularProgressIndicator(
-                                                valueColor:
-                                                    AlwaysStoppedAnimation<
-                                                        Color>(
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        List<NumbersPedRow>
-                                            iconButtonNumbersPedRowList =
-                                            snapshot.data!;
-                                        return FlutterFlowIconButton(
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          borderRadius: 30.0,
-                                          borderWidth: 2.0,
-                                          buttonSize: 44.0,
-                                          icon: Icon(
-                                            Icons.close_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 24.0,
-                                          ),
-                                          onPressed: () async {
-                                            await showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              enableDrag: false,
-                                              context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child: CancelarWidget(
-                                                    deletar:
-                                                        iconButtonNumbersPedRowList
-                                                            .last,
-                                                  ),
-                                                );
-                                              },
-                                            ).then(
-                                                (value) => safeSetState(() {}));
+                                      onPressed: () async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: CancelarWidget(),
+                                            );
                                           },
-                                        );
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                     ),
                                   ),

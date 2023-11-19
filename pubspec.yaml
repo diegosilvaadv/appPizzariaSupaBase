@@ -31,6 +31,8 @@ dependencies:
   badges: 2.0.2
   cached_network_image: 3.2.1
   carousel_slider: 4.2.1
+  easy_debounce: 2.0.1
+  equatable: 2.0.5
   expandable: 5.0.1
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.0
@@ -45,6 +47,7 @@ dependencies:
   hive: 2.2.3
   intl: 0.18.1
   json_path: 0.6.2
+  mime_type: 1.0.0
   page_transition: 2.0.4
   path_provider: 2.0.14
   path_provider_android: 2.0.25

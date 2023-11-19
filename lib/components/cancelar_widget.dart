@@ -11,12 +11,7 @@ import 'cancelar_model.dart';
 export 'cancelar_model.dart';
 
 class CancelarWidget extends StatefulWidget {
-  const CancelarWidget({
-    Key? key,
-    required this.deletar,
-  }) : super(key: key);
-
-  final NumbersPedRow? deletar;
+  const CancelarWidget({Key? key}) : super(key: key);
 
   @override
   _CancelarWidgetState createState() => _CancelarWidgetState();

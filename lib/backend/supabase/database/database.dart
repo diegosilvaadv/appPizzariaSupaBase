@@ -6,6 +6,7 @@ export 'row.dart';
 export 'table.dart';
 
 export 'tables/pedidos_carrinho.dart';
+export 'tables/user_enderecos.dart';
 export 'tables/produtos.dart';
 export 'tables/massas.dart';
 export 'tables/numbers_ped.dart';
