@@ -30,7 +30,8 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
     super.initState();
     _model = createModel(context, () => EnderecoPageModel());
 
-    _model.buscarCepController ??= TextEditingController();
+    _model.buscarCepController ??=
+        TextEditingController(text: FFAppState().enderecoRef.cep);
     _model.buscarCepFocusNode ??= FocusNode();
 
     _model.logradouroController ??=
@@ -858,7 +859,19 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                               _model.estadoController.text,
                                           'user_id': currentUserUid,
                                         });
-                                        Navigator.pop(context);
+
+                                        context.goNamed(
+                                          'carrinho',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 0),
+                                            ),
+                                          },
+                                        );
                                       },
                                       text: 'Adicionar Endereço',
                                       options: FFButtonOptions(
