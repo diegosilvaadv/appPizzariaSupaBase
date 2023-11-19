@@ -17,7 +17,10 @@ class ApiCepCall {
       apiUrl: 'https://viacep.com.br/ws/${cep}/json/',
       callType: ApiCallType.GET,
       headers: {},
-      params: {},
+      params: {
+        'deCep': "01000000",
+        'ateCep': "19999999",
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -537,24 +536,13 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                                                         ?.succeeded ??
                                                                     true) ==
                                                                 true) {
-                                                              if (random_data
-                                                                          .randomString(
-                                                                        1000000,
-                                                                        19999999,
-                                                                        false,
-                                                                        false,
-                                                                        true,
-                                                                      ) !=
-                                                                      null &&
-                                                                  random_data
-                                                                          .randomString(
-                                                                        1000000,
-                                                                        19999999,
-                                                                        false,
-                                                                        false,
-                                                                        true,
-                                                                      ) !=
-                                                                      '') {
+                                                              if (ApiCepCall
+                                                                      .cidade(
+                                                                    (_model.respAPI
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ).toString() ==
+                                                                  'São Paulo') {
                                                                 setState(() {
                                                                   FFAppState()
                                                                       .updateEnderecoRefStruct(
@@ -621,7 +609,7 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                                                   SnackBar(
                                                                     content:
                                                                         Text(
-                                                                      'erro',
+                                                                      'Não cobrimos sua regiao',
                                                                       style:
                                                                           TextStyle(
                                                                         color: FlutterFlowTheme.of(context)
