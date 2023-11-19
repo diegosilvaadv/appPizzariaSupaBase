@@ -242,7 +242,6 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                               child: TextFormField(
                                 controller: _model.logradouroController,
                                 focusNode: _model.logradouroFocusNode,
-                                autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Logradouro',
@@ -324,7 +323,6 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                               child: TextFormField(
                                 controller: _model.complementoController,
                                 focusNode: _model.complementoFocusNode,
-                                autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Complemento',
@@ -406,7 +404,6 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                               child: TextFormField(
                                 controller: _model.bairroController,
                                 focusNode: _model.bairroFocusNode,
-                                autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Bairro',
@@ -488,7 +485,6 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                               child: TextFormField(
                                 controller: _model.cidadeController,
                                 focusNode: _model.cidadeFocusNode,
-                                autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Cidade',
@@ -570,7 +566,6 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                               child: TextFormField(
                                 controller: _model.estadoController,
                                 focusNode: _model.estadoFocusNode,
-                                autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'Estado',
