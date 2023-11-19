@@ -629,7 +629,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                              10.0, 10.0, 10.0, 10.0),
                           child: FutureBuilder<List<UserEnderecosRow>>(
                             future: UserEnderecosTable().querySingleRow(
                               queryFn: (q) => q,
@@ -659,17 +659,18 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Expanded(
-                                    child: Text(
-                                      '${rowUserEnderecosRow?.endereco} - ${rowUserEnderecosRow?.bairro}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            fontSize: 20.0,
-                                          ),
+                                  if (rowUserEnderecosRow?.id != 0)
+                                    Expanded(
+                                      child: Text(
+                                        '${rowUserEnderecosRow?.endereco} - ${rowUserEnderecosRow?.bairro}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              fontSize: 20.0,
+                                            ),
+                                      ),
                                     ),
-                                  ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
