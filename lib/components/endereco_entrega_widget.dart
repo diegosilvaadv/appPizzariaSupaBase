@@ -36,12 +36,9 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
     _model.buscarCepFocusNode ??= FocusNode();
 
     _model.logradouroController ??= TextEditingController(
-        text: valueOrDefault<String>(
-      ApiCepCall.endereco(
-        (_model.buscarCepAPI?.jsonBody ?? ''),
-      ).toString(),
-      'Sem endereço',
-    ));
+        text: ApiCepCall.endereco(
+      (_model.buscarCepAPI?.jsonBody ?? ''),
+    ).toString());
     _model.logradouroFocusNode ??= FocusNode();
 
     _model.complementoController ??= TextEditingController(
@@ -63,9 +60,12 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
     _model.cidadeFocusNode ??= FocusNode();
 
     _model.estadoController ??= TextEditingController(
-        text: ApiCepCall.estado(
-      (_model.buscarCepAPI?.jsonBody ?? ''),
-    ).toString());
+        text: valueOrDefault<String>(
+      ApiCepCall.estado(
+        (_model.buscarCepAPI?.jsonBody ?? ''),
+      ).toString(),
+      'Estado',
+    ));
     _model.estadoFocusNode ??= FocusNode();
   }
 
@@ -137,14 +137,6 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                                   return TextFormField(
                                     controller: _model.buscarCepController,
                                     focusNode: _model.buscarCepFocusNode,
-                                    onFieldSubmitted: (_) async {
-                                      _model.buscarCepAPI =
-                                          await ApiCepCall.call(
-                                        cep: _model.buscarCepController.text,
-                                      );
-
-                                      setState(() {});
-                                    },
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Buscar por Cep',
@@ -189,12 +181,6 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      suffixIcon: Icon(
-                                        Icons.search,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        size: 20.0,
-                                      ),
                                     ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
@@ -203,6 +189,28 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                                         .asValidator(context),
                                   );
                                 },
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 15.0, 10.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                _model.buscarCepAPI = await ApiCepCall.call(
+                                  cep: _model.buscarCepController.text,
+                                );
+
+                                setState(() {});
+                              },
+                              child: Icon(
+                                Icons.search_sharp,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 30.0,
                               ),
                             ),
                           ),

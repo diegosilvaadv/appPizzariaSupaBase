@@ -17,7 +17,7 @@ class EnderecoEntregaModel extends FlutterFlowModel<EnderecoEntregaWidget> {
   FocusNode? buscarCepFocusNode;
   TextEditingController? buscarCepController;
   String? Function(BuildContext, String?)? buscarCepControllerValidator;
-  // Stores action output result for [Backend Call - API (apiCep)] action in buscarCep widget.
+  // Stores action output result for [Backend Call - API (apiCep)] action in Icon widget.
   ApiCallResponse? buscarCepAPI;
   // State field(s) for Logradouro widget.
   FocusNode? logradouroFocusNode;
