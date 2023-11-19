@@ -4,7 +4,6 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -37,9 +36,12 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
     _model.buscarCepFocusNode ??= FocusNode();
 
     _model.logradouroController ??= TextEditingController(
-        text: ApiCepCall.endereco(
-      (_model.buscarCepAPI?.jsonBody ?? ''),
-    ).toString());
+        text: valueOrDefault<String>(
+      ApiCepCall.endereco(
+        (_model.buscarCepAPI?.jsonBody ?? ''),
+      ).toString(),
+      'Sem endereço',
+    ));
     _model.logradouroFocusNode ??= FocusNode();
 
     _model.complementoController ??= TextEditingController(
@@ -135,18 +137,14 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                                   return TextFormField(
                                     controller: _model.buscarCepController,
                                     focusNode: _model.buscarCepFocusNode,
-                                    onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.buscarCepController',
-                                      Duration(milliseconds: 2000),
-                                      () async {
-                                        _model.buscarCepAPI =
-                                            await ApiCepCall.call(
-                                          cep: _model.buscarCepController.text,
-                                        );
+                                    onFieldSubmitted: (_) async {
+                                      _model.buscarCepAPI =
+                                          await ApiCepCall.call(
+                                        cep: _model.buscarCepController.text,
+                                      );
 
-                                        setState(() {});
-                                      },
-                                    ),
+                                      setState(() {});
+                                    },
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Buscar por Cep',
