@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -536,71 +537,102 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                                                         ?.succeeded ??
                                                                     true) ==
                                                                 true) {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                    .updateEnderecoRefStruct(
-                                                                  (e) => e
-                                                                    ..endereco =
-                                                                        ApiCepCall
-                                                                            .endereco(
-                                                                      (_model.respAPI
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()
-                                                                    ..cep =
-                                                                        ApiCepCall
-                                                                            .cep(
-                                                                      (_model.respAPI
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()
-                                                                    ..bairro =
-                                                                        ApiCepCall
-                                                                            .bairro(
-                                                                      (_model.respAPI
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()
-                                                                    ..cidade =
-                                                                        ApiCepCall
-                                                                            .cidade(
-                                                                      (_model.respAPI
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()
-                                                                    ..uf = ApiCepCall
-                                                                        .estado(
-                                                                      (_model.respAPI
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()
-                                                                    ..complemento =
-                                                                        ApiCepCall
-                                                                            .complemento(
-                                                                      (_model.respAPI
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString(),
-                                                                );
-                                                              });
+                                                              if (random_data
+                                                                      .randomString(
+                                                                    1000000,
+                                                                    19999999,
+                                                                    false,
+                                                                    false,
+                                                                    true,
+                                                                  ) ==
+                                                                  ApiCepCall
+                                                                      .cep(
+                                                                    (_model.respAPI
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ).toString()) {
+                                                                setState(() {
+                                                                  FFAppState()
+                                                                      .updateEnderecoRefStruct(
+                                                                    (e) => e
+                                                                      ..endereco =
+                                                                          ApiCepCall
+                                                                              .endereco(
+                                                                        (_model.respAPI?.jsonBody ??
+                                                                            ''),
+                                                                      ).toString()
+                                                                      ..cep =
+                                                                          ApiCepCall
+                                                                              .cep(
+                                                                        (_model.respAPI?.jsonBody ??
+                                                                            ''),
+                                                                      ).toString()
+                                                                      ..bairro =
+                                                                          ApiCepCall
+                                                                              .bairro(
+                                                                        (_model.respAPI?.jsonBody ??
+                                                                            ''),
+                                                                      ).toString()
+                                                                      ..cidade =
+                                                                          ApiCepCall
+                                                                              .cidade(
+                                                                        (_model.respAPI?.jsonBody ??
+                                                                            ''),
+                                                                      ).toString()
+                                                                      ..uf = ApiCepCall
+                                                                          .estado(
+                                                                        (_model.respAPI?.jsonBody ??
+                                                                            ''),
+                                                                      ).toString()
+                                                                      ..complemento =
+                                                                          ApiCepCall
+                                                                              .complemento(
+                                                                        (_model.respAPI?.jsonBody ??
+                                                                            ''),
+                                                                      ).toString(),
+                                                                  );
+                                                                });
 
-                                                              context.goNamed(
-                                                                'enderecoPage',
-                                                                extra: <String,
-                                                                    dynamic>{
-                                                                  kTransitionInfoKey:
-                                                                      TransitionInfo(
-                                                                    hasTransition:
-                                                                        true,
-                                                                    transitionType:
-                                                                        PageTransitionType
-                                                                            .fade,
+                                                                context.goNamed(
+                                                                  'enderecoPage',
+                                                                  extra: <String,
+                                                                      dynamic>{
+                                                                    kTransitionInfoKey:
+                                                                        TransitionInfo(
+                                                                      hasTransition:
+                                                                          true,
+                                                                      transitionType:
+                                                                          PageTransitionType
+                                                                              .fade,
+                                                                      duration: Duration(
+                                                                          milliseconds:
+                                                                              0),
+                                                                    ),
+                                                                  },
+                                                                );
+                                                              } else {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'erro',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                                    ),
                                                                     duration: Duration(
                                                                         milliseconds:
-                                                                            0),
+                                                                            4000),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .secondary,
                                                                   ),
-                                                                },
-                                                              );
+                                                                );
+                                                              }
                                                             } else {
                                                               ScaffoldMessenger
                                                                       .of(context)
