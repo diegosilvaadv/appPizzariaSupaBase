@@ -204,6 +204,11 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                                 _model.buscarCepAPI = await ApiCepCall.call(
                                   cep: _model.buscarCepController.text,
                                 );
+                                setState(() {
+                                  _model.endereco = ApiCepCall.endereco(
+                                    (_model.buscarCepAPI?.jsonBody ?? ''),
+                                  ).toString();
+                                });
 
                                 setState(() {});
                               },

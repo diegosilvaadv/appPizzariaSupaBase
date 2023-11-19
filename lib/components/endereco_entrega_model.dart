@@ -11,6 +11,18 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class EnderecoEntregaModel extends FlutterFlowModel<EnderecoEntregaWidget> {
+  ///  Local state fields for this component.
+
+  String endereco = ' ';
+
+  String complemento = ' ';
+
+  String bairro = ' ';
+
+  String cidade = ' ';
+
+  String estado = ' ';
+
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for buscarCep widget.
