@@ -996,6 +996,20 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                   children: [
                                     FFButtonWidget(
                                       onPressed: () async {
+                                        await UserEnderecosTable().update(
+                                          data: {
+                                            'status': 'Opcional',
+                                          },
+                                          matchingRows: (rows) => rows
+                                              .eq(
+                                                'user_id',
+                                                currentUserUid,
+                                              )
+                                              .eq(
+                                                'status',
+                                                'Principal',
+                                              ),
+                                        );
                                         await UserEnderecosTable().insert({
                                           'Cep':
                                               _model.buscarCepController.text,
