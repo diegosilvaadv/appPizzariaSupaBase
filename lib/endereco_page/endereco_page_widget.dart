@@ -192,17 +192,6 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                                         'Principal',
                                                       ),
                                                 );
-                                                await UserEnderecosTable()
-                                                    .update(
-                                                  data: {
-                                                    'status': 'Principal',
-                                                  },
-                                                  matchingRows: (rows) =>
-                                                      rows.eq(
-                                                    'user_id',
-                                                    currentUserUid,
-                                                  ),
-                                                );
 
                                                 context.goNamed(
                                                   'carrinho',
