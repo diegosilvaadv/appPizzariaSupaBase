@@ -256,7 +256,7 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Endereço',
+                                    _model.endereco,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
