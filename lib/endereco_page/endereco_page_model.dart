@@ -13,10 +13,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class EnderecoPageModel extends FlutterFlowModel<EnderecoPageWidget> {
-  ///  Local state fields for this page.
-
-  String endereco = 'sem';
-
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

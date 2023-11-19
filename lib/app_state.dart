@@ -200,8 +200,8 @@ class FFAppState extends ChangeNotifier {
     _status = _value;
   }
 
-  EnderecosStruct _enderecoRef =
-      EnderecosStruct.fromSerializableMap(jsonDecode('{\"endereco\":\"Sem\"}'));
+  EnderecosStruct _enderecoRef = EnderecosStruct.fromSerializableMap(jsonDecode(
+      '{\"endereco\":\"\",\"Cep\":\"\",\"Bairro\":\"\",\"Cidade\":\"\",\"UF\":\"\",\"Complemento\":\"\"}'));
   EnderecosStruct get enderecoRef => _enderecoRef;
   set enderecoRef(EnderecosStruct _value) {
     _enderecoRef = _value;
