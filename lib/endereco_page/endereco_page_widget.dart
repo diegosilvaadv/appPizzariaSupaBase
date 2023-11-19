@@ -538,19 +538,23 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                                                     true) ==
                                                                 true) {
                                                               if (random_data
-                                                                      .randomString(
-                                                                    1000000,
-                                                                    19999999,
-                                                                    false,
-                                                                    false,
-                                                                    true,
-                                                                  ) ==
-                                                                  ApiCepCall
-                                                                      .cep(
-                                                                    (_model.respAPI
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  ).toString()) {
+                                                                          .randomString(
+                                                                        1000000,
+                                                                        19999999,
+                                                                        false,
+                                                                        false,
+                                                                        true,
+                                                                      ) !=
+                                                                      null &&
+                                                                  random_data
+                                                                          .randomString(
+                                                                        1000000,
+                                                                        19999999,
+                                                                        false,
+                                                                        false,
+                                                                        true,
+                                                                      ) !=
+                                                                      '') {
                                                                 setState(() {
                                                                   FFAppState()
                                                                       .updateEnderecoRefStruct(
