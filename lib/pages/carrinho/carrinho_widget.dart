@@ -639,17 +639,18 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Expanded(
-                                child: Text(
-                                  '${widget.users?.endereco} - ${widget.users?.bairro} - ${widget.users?.cidade} | ${widget.users?.cep}',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        fontSize: 16.0,
-                                      ),
+                              if (widget.users?.id != 0)
+                                Expanded(
+                                  child: Text(
+                                    '${widget.users?.endereco} - ${widget.users?.bairro} - ${widget.users?.cidade} | ${widget.users?.cep}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 16.0,
+                                        ),
+                                  ),
                                 ),
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 0.0, 0.0),
