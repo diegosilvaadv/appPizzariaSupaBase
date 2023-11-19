@@ -667,6 +667,19 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                             ),
                                       ),
                                     ),
+                                  if (carrinhoUserEnderecosRow?.userId !=
+                                      currentUserUid)
+                                    Expanded(
+                                      child: Text(
+                                        'Sem Endereço de entrega definido.',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              fontSize: 16.0,
+                                            ),
+                                      ),
+                                    ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
