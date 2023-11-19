@@ -1,9 +1,11 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -95,9 +97,13 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: FutureBuilder<ApiCallResponse>(
-                                future: ApiCepCall.call(
-                                  cep: _model.buscarCepController.text,
-                                ),
+                                future: (_model.apiRequestCompleter ??=
+                                        Completer<ApiCallResponse>()
+                                          ..complete(ApiCepCall.call(
+                                            cep:
+                                                _model.buscarCepController.text,
+                                          )))
+                                    .future,
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
@@ -175,34 +181,39 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 15.0, 10.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                _model.respAPI = await ApiCepCall.call(
-                                  cep: _model.buscarCepController.text,
-                                );
-                                if ((_model.respAPI?.succeeded ?? true)) {
-                                  setState(() {
-                                    _model.endereco = ApiCepCall.endereco(
-                                      (_model.respAPI?.jsonBody ?? ''),
-                                    ).toString();
-                                  });
-                                }
-
-                                setState(() {});
-                              },
-                              child: Icon(
-                                Icons.search_sharp,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 30.0,
-                              ),
+                          FlutterFlowIconButton(
+                            borderColor:
+                                FlutterFlowTheme.of(context).secondaryText,
+                            borderRadius: 20.0,
+                            borderWidth: 1.0,
+                            buttonSize: 40.0,
+                            fillColor: Color(0x4CFFFFFF),
+                            icon: Icon(
+                              Icons.search,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 24.0,
                             ),
+                            onPressed: () async {
+                              _model.respAPI = await ApiCepCall.call(
+                                cep: _model.buscarCepController.text,
+                              );
+                              if ((_model.respAPI?.succeeded ?? true) == true) {
+                                setState(() {
+                                  _model.endereco = ApiCepCall.endereco(
+                                    (_model.respAPI?.jsonBody ?? ''),
+                                  ).toString();
+                                });
+                                setState(
+                                    () => _model.apiRequestCompleter = null);
+                                await _model.waitForApiRequestCompleted();
+                              } else {
+                                setState(() {
+                                  _model.endereco = ' ';
+                                });
+                              }
+
+                              setState(() {});
+                            },
                           ),
                         ],
                       ),
