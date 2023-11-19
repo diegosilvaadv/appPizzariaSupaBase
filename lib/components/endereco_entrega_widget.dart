@@ -35,37 +35,20 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
     _model.buscarCepController ??= TextEditingController();
     _model.buscarCepFocusNode ??= FocusNode();
 
-    _model.logradouroController ??= TextEditingController(
-        text: ApiCepCall.endereco(
-      (_model.buscarCepAPI?.jsonBody ?? ''),
-    ).toString());
+    _model.logradouroController ??=
+        TextEditingController(text: _model.endereco);
     _model.logradouroFocusNode ??= FocusNode();
 
-    _model.complementoController ??= TextEditingController(
-        text: ApiCepCall.complemento(
-      (_model.buscarCepAPI?.jsonBody ?? ''),
-    ).toString());
+    _model.complementoController ??= TextEditingController();
     _model.complementoFocusNode ??= FocusNode();
 
-    _model.bairroController ??= TextEditingController(
-        text: ApiCepCall.bairro(
-      (_model.buscarCepAPI?.jsonBody ?? ''),
-    ).toString());
+    _model.bairroController ??= TextEditingController();
     _model.bairroFocusNode ??= FocusNode();
 
-    _model.cidadeController ??= TextEditingController(
-        text: ApiCepCall.cidade(
-      (_model.buscarCepAPI?.jsonBody ?? ''),
-    ).toString());
+    _model.cidadeController ??= TextEditingController();
     _model.cidadeFocusNode ??= FocusNode();
 
-    _model.estadoController ??= TextEditingController(
-        text: valueOrDefault<String>(
-      ApiCepCall.estado(
-        (_model.buscarCepAPI?.jsonBody ?? ''),
-      ).toString(),
-      'Estado',
-    ));
+    _model.estadoController ??= TextEditingController();
     _model.estadoFocusNode ??= FocusNode();
   }
 
@@ -201,14 +184,16 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                _model.buscarCepAPI = await ApiCepCall.call(
+                                _model.respAPI = await ApiCepCall.call(
                                   cep: _model.buscarCepController.text,
                                 );
-                                setState(() {
-                                  _model.endereco = ApiCepCall.endereco(
-                                    (_model.buscarCepAPI?.jsonBody ?? ''),
-                                  ).toString();
-                                });
+                                if ((_model.respAPI?.succeeded ?? true)) {
+                                  setState(() {
+                                    _model.endereco = ApiCepCall.endereco(
+                                      (_model.respAPI?.jsonBody ?? ''),
+                                    ).toString();
+                                  });
+                                }
 
                                 setState(() {});
                               },
