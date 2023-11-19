@@ -19,7 +19,12 @@ import 'carrinho_model.dart';
 export 'carrinho_model.dart';
 
 class CarrinhoWidget extends StatefulWidget {
-  const CarrinhoWidget({Key? key}) : super(key: key);
+  const CarrinhoWidget({
+    Key? key,
+    this.users,
+  }) : super(key: key);
+
+  final UserEnderecosRow? users;
 
   @override
   _CarrinhoWidgetState createState() => _CarrinhoWidgetState();
@@ -630,88 +635,52 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 10.0, 10.0, 10.0),
-                          child: FutureBuilder<List<UserEnderecosRow>>(
-                            future: UserEnderecosTable().querySingleRow(
-                              queryFn: (q) => q.eq(
-                                'user_id',
-                                currentUserUid,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  '${widget.users?.endereco} - ${widget.users?.bairro} - ${widget.users?.cidade} | ${widget.users?.cep}',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 16.0,
+                                      ),
+                                ),
                               ),
-                            ),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        FlutterFlowTheme.of(context).primary,
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }
-                              List<UserEnderecosRow> rowUserEnderecosRowList =
-                                  snapshot.data!;
-                              final rowUserEnderecosRow =
-                                  rowUserEnderecosRowList.isNotEmpty
-                                      ? rowUserEnderecosRowList.first
-                                      : null;
-                              return Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      valueOrDefault<String>(
-                                        '${rowUserEnderecosRow?.endereco} - ${rowUserEnderecosRow?.bairro}',
-                                        'Sem Endereço definido',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            fontSize: 20.0,
-                                          ),
-                                    ),
-                                  ),
-                                  Padding(
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    context.pushNamed('enderecoPage');
+                                  },
+                                  text: 'Definir',
+                                  options: FFButtonOptions(
+                                    height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        context.pushNamed('enderecoPage');
-                                      },
-                                      text: 'Definir',
-                                      options: FFButtonOptions(
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color: Colors.white,
-                                            ),
-                                        elevation: 3.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
+                                        24.0, 0.0, 24.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: Colors.white,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
                                     ),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                ],
-                              );
-                            },
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         if (FFAppState().numberCarrinho == 0)

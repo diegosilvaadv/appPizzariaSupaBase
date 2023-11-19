@@ -114,7 +114,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/carrinho',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'carrinho')
-              : CarrinhoWidget(),
+              : CarrinhoWidget(
+                  users: params.getParam<UserEnderecosRow>(
+                      'users', ParamType.SupabaseRow),
+                ),
         ),
         FFRoute(
           name: 'detalhes_produtos_2sab',
