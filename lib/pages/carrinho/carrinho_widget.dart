@@ -1,7 +1,6 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
-import '/components/endereco_entrega_widget.dart';
 import '/componets/pagamento/pagamento_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -682,30 +681,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                         10.0, 0.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          enableDrag: false,
-                                          useSafeArea: true,
-                                          context: context,
-                                          builder: (context) {
-                                            return GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: EnderecoEntregaWidget(),
-                                              ),
-                                            );
-                                          },
-                                        ).then((value) => safeSetState(() {}));
+                                        context.pushNamed('enderecoPage');
                                       },
                                       text: 'Definir',
                                       options: FFButtonOptions(
