@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'endereco_entrega_widget.dart' show EnderecoEntregaWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,7 +32,6 @@ class EnderecoEntregaModel extends FlutterFlowModel<EnderecoEntregaWidget> {
   String? Function(BuildContext, String?)? buscarCepControllerValidator;
   // Stores action output result for [Backend Call - API (apiCep)] action in IconButton widget.
   ApiCallResponse? respAPI;
-  Completer<ApiCallResponse>? apiRequestCompleter;
   // State field(s) for Logradouro widget.
   FocusNode? logradouroFocusNode;
   TextEditingController? logradouroController;
@@ -82,19 +80,4 @@ class EnderecoEntregaModel extends FlutterFlowModel<EnderecoEntregaWidget> {
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
-
-  Future waitForApiRequestCompleted({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = apiRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
-  }
 }

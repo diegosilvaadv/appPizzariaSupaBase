@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -97,13 +96,9 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: FutureBuilder<ApiCallResponse>(
-                                future: (_model.apiRequestCompleter ??=
-                                        Completer<ApiCallResponse>()
-                                          ..complete(ApiCepCall.call(
-                                            cep:
-                                                _model.buscarCepController.text,
-                                          )))
-                                    .future,
+                                future: ApiCepCall.call(
+                                  cep: _model.buscarCepController.text,
+                                ),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
@@ -198,16 +193,13 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                                 cep: _model.buscarCepController.text,
                               );
                               if ((_model.respAPI?.succeeded ?? true) == true) {
-                                setState(() {
+                                _model.updatePage(() {
                                   _model.endereco = ApiCepCall.endereco(
                                     (_model.respAPI?.jsonBody ?? ''),
                                   ).toString();
                                 });
-                                setState(
-                                    () => _model.apiRequestCompleter = null);
-                                await _model.waitForApiRequestCompleted();
                               } else {
-                                setState(() {
+                                _model.updatePage(() {
                                   _model.endereco = ' ';
                                 });
                               }
