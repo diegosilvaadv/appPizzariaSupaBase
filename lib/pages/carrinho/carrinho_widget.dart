@@ -873,7 +873,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                               return FFButtonWidget(
                                                 onPressed: () async {
                                                   if (carrinhoUserEnderecosRow
-                                                          ?.userId !=
+                                                          ?.userId ==
                                                       currentUserUid) {
                                                     unawaited(
                                                       () async {
