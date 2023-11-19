@@ -19,12 +19,7 @@ import 'carrinho_model.dart';
 export 'carrinho_model.dart';
 
 class CarrinhoWidget extends StatefulWidget {
-  const CarrinhoWidget({
-    Key? key,
-    this.users,
-  }) : super(key: key);
-
-  final UserEnderecosRow? users;
+  const CarrinhoWidget({Key? key}) : super(key: key);
 
   @override
   _CarrinhoWidgetState createState() => _CarrinhoWidgetState();
@@ -661,7 +656,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                 children: [
                                   Expanded(
                                     child: Text(
-                                      '${carrinhoUserEnderecosRow?.endereco} - ${widget.users?.bairro} - ${widget.users?.cidade} | ${widget.users?.cep}',
+                                      '${carrinhoUserEnderecosRow?.endereco} - ${carrinhoUserEnderecosRow?.bairro} - ${carrinhoUserEnderecosRow?.cidade} | ${carrinhoUserEnderecosRow?.cep}',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

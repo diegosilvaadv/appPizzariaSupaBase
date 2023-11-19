@@ -215,12 +215,6 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
 
                                                 context.goNamed(
                                                   'carrinho',
-                                                  queryParameters: {
-                                                    'users': serializeParam(
-                                                      listViewUserEnderecosRow,
-                                                      ParamType.SupabaseRow,
-                                                    ),
-                                                  }.withoutNulls,
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
                                                         TransitionInfo(
