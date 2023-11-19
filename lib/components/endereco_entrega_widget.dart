@@ -189,7 +189,7 @@ class _EnderecoEntregaWidgetState extends State<EnderecoEntregaWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      prefixIcon: Icon(
+                                      suffixIcon: Icon(
                                         Icons.search,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
