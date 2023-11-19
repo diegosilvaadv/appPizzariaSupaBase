@@ -632,7 +632,10 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                               10.0, 10.0, 10.0, 10.0),
                           child: FutureBuilder<List<UserEnderecosRow>>(
                             future: UserEnderecosTable().querySingleRow(
-                              queryFn: (q) => q,
+                              queryFn: (q) => q.eq(
+                                'user_id',
+                                currentUserUid,
+                              ),
                             ),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
@@ -659,18 +662,20 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  if (rowUserEnderecosRow?.id != 0)
-                                    Expanded(
-                                      child: Text(
+                                  Expanded(
+                                    child: Text(
+                                      valueOrDefault<String>(
                                         '${rowUserEnderecosRow?.endereco} - ${rowUserEnderecosRow?.bairro}',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 20.0,
-                                            ),
+                                        'Sem Endereço definido',
                                       ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 20.0,
+                                          ),
                                     ),
+                                  ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
