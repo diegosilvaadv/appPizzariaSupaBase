@@ -143,11 +143,16 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UserEnderecosRow>>(
-      future: UserEnderecosTable().queryRows(
-        queryFn: (q) => q.eq(
-          'user_id',
-          currentUserUid,
-        ),
+      future: UserEnderecosTable().querySingleRow(
+        queryFn: (q) => q
+            .eq(
+              'user_id',
+              currentUserUid,
+            )
+            .eq(
+              'status',
+              'Principal',
+            ),
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -168,6 +173,9 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
           );
         }
         List<UserEnderecosRow> carrinhoUserEnderecosRowList = snapshot.data!;
+        final carrinhoUserEnderecosRow = carrinhoUserEnderecosRowList.isNotEmpty
+            ? carrinhoUserEnderecosRowList.first
+            : null;
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -653,7 +661,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget>
                                 children: [
                                   Expanded(
                                     child: Text(
-                                      '${widget.users?.endereco} - ${widget.users?.bairro} - ${widget.users?.cidade} | ${widget.users?.cep}',
+                                      '${carrinhoUserEnderecosRow?.endereco} - ${widget.users?.bairro} - ${widget.users?.cidade} | ${widget.users?.cep}',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

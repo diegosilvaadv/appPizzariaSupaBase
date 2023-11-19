@@ -177,6 +177,33 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                                     6.0, 0.0, 0.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
+                                                await UserEnderecosTable()
+                                                    .update(
+                                                  data: {
+                                                    'status': 'Opicional',
+                                                  },
+                                                  matchingRows: (rows) => rows
+                                                      .eq(
+                                                        'user_id',
+                                                        currentUserUid,
+                                                      )
+                                                      .eq(
+                                                        'status',
+                                                        'Principal',
+                                                      ),
+                                                );
+                                                await UserEnderecosTable()
+                                                    .update(
+                                                  data: {
+                                                    'status': 'Principal',
+                                                  },
+                                                  matchingRows: (rows) =>
+                                                      rows.eq(
+                                                    'user_id',
+                                                    currentUserUid,
+                                                  ),
+                                                );
+
                                                 context.goNamed(
                                                   'carrinho',
                                                   queryParameters: {
@@ -972,6 +999,7 @@ class _EnderecoPageWidgetState extends State<EnderecoPageWidget> {
                                           'estado':
                                               _model.estadoController.text,
                                           'user_id': currentUserUid,
+                                          'status': 'Principal',
                                         });
 
                                         context.goNamed(
