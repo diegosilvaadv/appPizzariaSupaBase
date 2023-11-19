@@ -199,6 +199,17 @@ class FFAppState extends ChangeNotifier {
   set status(String _value) {
     _status = _value;
   }
+
+  EnderecosStruct _enderecoRef =
+      EnderecosStruct.fromSerializableMap(jsonDecode('{\"endereco\":\"Sem\"}'));
+  EnderecosStruct get enderecoRef => _enderecoRef;
+  set enderecoRef(EnderecosStruct _value) {
+    _enderecoRef = _value;
+  }
+
+  void updateEnderecoRefStruct(Function(EnderecosStruct) updateFn) {
+    updateFn(_enderecoRef);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
